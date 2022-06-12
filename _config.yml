@@ -5,9 +5,9 @@
 # Site
 title: 冯廷鑫的日志
 subtitle: ''
-description: ''
+description: '冯廷鑫的日志'
 keywords:
-author: TingXin Feng
+author: 冯廷鑫
 language: zh-CN
 timezone: ''
 
@@ -44,14 +44,14 @@ post_asset_folder: false
 relative_link: false
 future: true
 highlight:
-  enable: true
+  enable: false
   line_number: true
   auto_detect: false
   tab_replace: ''
   wrap: true
   hljs: false
 prismjs:
-  enable: false
+  enable: true
   preprocess: true
   line_number: true
   tab_replace: ''
