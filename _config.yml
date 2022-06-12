@@ -104,4 +104,4 @@ theme: hexo-theme-matery
 deploy:
   type: git
   repo: git@github.com:fengtingxin/fengtingxin.github.io.git
-  branch: dev
+  branch: test
