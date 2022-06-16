@@ -351,8 +351,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%8A%9B%E6%89%A3-%E7%AE%97%E6%B3%95/">
-                                <span class="chip bg-color">力扣,算法</span>
+                            <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/">
+                                <span class="chip bg-color">二叉树</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                <span class="chip bg-color">算法</span>
                             </a>
                         
                     </div>
@@ -374,21 +378,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-06-13
+                    2022-06-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    259
+                    525
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -424,6 +428,7 @@
 <p><strong>注意：</strong>两结点之间的路径长度是以它们之间边的数目表示。</p>
 <p>来源：力扣（LeetCode）链接：<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/diameter-of-binary-tree">https://leetcode.cn/problems/diameter-of-binary-tree</a></p>
 <h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>前提：了解二叉树的前序、中序、后序、层级遍历</p>
+<p>参考：<a href="https://fengtingxin.github.io/2022/06/12/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/">二叉树的基本知识</a></p>
 <p>1.暴力解法：循环当前二叉树，已当前节点为根，求左子树和右子树的最大深度之和。</p>
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
  * Definition for a binary tree node.
@@ -441,12 +446,48 @@
  * &#125;
  */</span>
 <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">/**
+     * 二叉树的直径
+     * 给定一棵二叉树，你需要计算它的直径长度。一棵二叉树的直径长度是任意两个结点路径长度中的最大值。这条路径可能穿过也可能不穿过根结点。
+     */</span>
     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">diameterOfBinaryTree</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> root<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        
+        <span class="token comment">/**
+         *            1
+         *          / \
+         *        2    3
+         *       / \  /
+         *     4   5 6
+         * 已此为例，我们想求最大直径，也就是3->4 的距离，那么就是节点1 左子节点和右子节点的深度
+         * 虚拟公式：
+         * depth（1） = depth(2)+depth(3)
+         *
+         *
+         */</span>
+        <span class="token function">depth</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> MAX<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2>
+    <span class="token comment">/**
+     * 在获取二叉树深度的过程中，已经知道了左子树和右子树的深度，所以执行的过程中可以知道叶子节点间的最大长度。
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> MAX <span class="token operator">=</span> <span class="token number">0</span> <span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">depth</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> root<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>root <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">int</span> leftDepth <span class="token operator">=</span> <span class="token function">depth</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> rightDepth <span class="token operator">=</span> <span class="token function">depth</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> sum <span class="token operator">=</span> leftDepth <span class="token operator">+</span> rightDepth<span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>sum <span class="token operator">></span> MAX<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            MAX <span class="token operator">=</span> sum<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>leftDepth<span class="token punctuation">,</span>rightDepth<span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>时间复杂度：O(N)，也就是遍历这一个二叉树的时间</p>
+<p>空间复杂度：O(树的Height) Height 是二叉树的高度。</p>
+
                 
             </div>
             <hr/>
@@ -510,8 +551,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%8A%9B%E6%89%A3-%E7%AE%97%E6%B3%95/">
-                                    <span class="chip bg-color">力扣,算法</span>
+                                <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/">
+                                    <span class="chip bg-color">二叉树</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                    <span class="chip bg-color">算法</span>
                                 </a>
                             
                         </div>
@@ -596,10 +641,6 @@
                     
                     <a href="/tags/%E7%AE%97%E6%B3%95/">
                         <span class="chip bg-color">算法</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%BE%85%E8%A1%A5%E5%85%85/">
-                        <span class="chip bg-color">待补充</span>
                     </a>
                     
                 </div>
@@ -787,7 +828,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">1.6k</span>
+                        class="white-color">3.4k</span>
             
             
             
