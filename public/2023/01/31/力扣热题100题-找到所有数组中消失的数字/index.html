@@ -4,12 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="力扣热题100题-有效的括号, 冯廷鑫的日志">
-    <meta name="description" content="给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘，’]’ 的字符串 s ，判断字符串是否有效。
-有效字符串需满足：
-左括号必须用相同类型的右括号闭合。左括号必须以正确的顺序闭合。
+    <meta name="keywords" content="力扣热题100题-找到所有数组中消失的数字, 冯廷鑫的日志">
+    <meta name="description" content="给你一个含 n 个整数的数组 nums ，其中 nums[i] 在区间 [1, n] 内。请你找出所有在 [1, n] 范围内但没有出现在 nums 中的数字，并以数组的形式返回结果。
 示例 1：
-输入：s &amp;#x3D; &amp;quot;()&amp;">
+输入：nums &amp;#x3D; [4,3,2">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -23,7 +21,7 @@
 
     
 
-    <title>力扣热题100题-有效的括号 | 冯廷鑫的日志</title>
+    <title>力扣热题100题-找到所有数组中消失的数字 | 冯廷鑫的日志</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -228,12 +226,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">力扣热题100题-有效的括号</h1>
+                    <h1 class="description center-align post-title">力扣热题100题-找到所有数组中消失的数字</h1>
                 </div>
             </div>
         </div>
@@ -369,7 +367,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-06-18
+                    2023-01-31
                 </div>
                 
 
@@ -383,14 +381,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    231
+                    506
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -413,53 +411,63 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘，’]’ 的字符串 s ，判断字符串是否有效。</p>
-<p>有效字符串需满足：</p>
-<p>左括号必须用相同类型的右括号闭合。<br>左括号必须以正确的顺序闭合。</p>
+                <p>给你一个含 n 个整数的数组 nums ，其中 nums[i] 在区间 [1, n] 内。请你找出所有在 [1, n] 范围内但没有出现在 nums 中的数字，并以数组的形式返回结果。</p>
 <p>示例 1：</p>
-<pre class="line-numbers language-none"><code class="language-none">输入：s &#x3D; &quot;()&quot;
-输出：true<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>示例 2：</p>
-<pre class="line-numbers language-none"><code class="language-none">输入：s &#x3D; &quot;()[]&#123;&#125;&quot;
-输出：true<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>示例 3：</p>
-<pre class="line-numbers language-none"><code class="language-none">输入：s &#x3D; &quot;(]&quot;
-输出：false<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>示例 4：</p>
-<pre class="line-numbers language-none"><code class="language-none">输入：s &#x3D; &quot;([)]&quot;
-输出：false<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>示例 5：</p>
-<pre class="line-numbers language-none"><code class="language-none">输入：s &#x3D; &quot;&#123;[]&#125;&quot;
-输出：true<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-
+<p>输入：nums &#x3D; [4,3,2,7,8,2,3,1]<br>输出：[5,6]<br>示例 2：</p>
+<p>输入：nums &#x3D; [1,1]<br>输出：[2]</p>
 <p>提示：</p>
-<p>1 &lt;&#x3D; s.length &lt;&#x3D; 104<br>s 仅由括号 ‘()[]{}’ 组成</p>
-<p>来源：力扣（LeetCode）链接：<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/valid-parentheses">https://leetcode.cn/problems/valid-parentheses</a></p>
-<p>解答：</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">isValid</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token comment">//借助栈</span>
-        <span class="token class-name">Deque</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Character</span><span class="token punctuation">></span></span> stack <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayDeque</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Character</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">char</span><span class="token punctuation">[</span><span class="token punctuation">]</span> charArray <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">toCharArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">char</span> c <span class="token operator">:</span> charArray<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token char">'&#123;'</span> <span class="token operator">==</span> c<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-                stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token char">'&#125;'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token char">'('</span> <span class="token operator">==</span> c<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-                stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token char">')'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token char">'['</span> <span class="token operator">==</span> c<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-                stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token char">']'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>stack<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">||</span> c <span class="token operator">!=</span> stack<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-                <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+<p>n &#x3D;&#x3D; nums.length<br>1 &lt;&#x3D; n &lt;&#x3D; 105<br>1 &lt;&#x3D; nums[i] &lt;&#x3D; n<br>进阶：你能在不使用额外空间且时间复杂度为 O(n) 的情况下解决这个问题吗? 你可以假定返回的数组不算在额外空间内。</p>
+<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/find-all-numbers-disappeared-in-an-array">https://leetcode.cn/problems/find-all-numbers-disappeared-in-an-array</a></p>
+<p>额外使用一个数组作为hash表，记录哪个数字没有出现过：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> <span class="token function">findDisappearedNumbers</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">int</span> length <span class="token operator">=</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> temp <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span>length<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i <span class="token operator">&lt;</span> length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            temp<span class="token punctuation">[</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        
+        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> result <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>length<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>temp<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+                result<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
             <span class="token punctuation">&#125;</span>
         <span class="token punctuation">&#125;</span>
-        <span class="token keyword">return</span> stack<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+        <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>时间复杂度：O(n) 空间复杂度O(n)</p>
+<p>执行结果几乎超时，时间复杂度为：O(n)，空间复杂度为O(n)，使用了额外的空间</p>
+<p>那么怎么不使用额外的空间呢？</p>
+<p>考虑只能从数组本身下手了</p>
+<p>官方答案：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token comment">//思路是这样</span>
+        <span class="token comment">//发现数组中的某个值之后，将这个值对应的数组下标的数字+ n,</span>
+        <span class="token comment">// 有可能存在多次+n的情况，实际值为: value %n即可。</span>
+        <span class="token comment">// 可能存在没有+n的情况，那就是没有出现在范围内容的数字</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> <span class="token function">findDisappearedNumbers</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">int</span> length <span class="token operator">=</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i <span class="token operator">&lt;</span> length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token comment">//找到这个数对应的数组下标</span>
+            <span class="token keyword">int</span> x <span class="token operator">=</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">%</span>length <span class="token punctuation">;</span>
+            nums<span class="token punctuation">[</span>x<span class="token punctuation">]</span> <span class="token operator">=</span> nums<span class="token punctuation">[</span>x<span class="token punctuation">]</span> <span class="token operator">+</span> length<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        
+        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> result <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>length<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token comment">//只要是出现过，那就肯定大于n</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;=</span> length<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+                result<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这样就可以已当前数组为哈希表。</p>
 
                 
             </div>
@@ -486,7 +494,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://fengtingxin.github.io/2022/06/18/%E5%8A%9B%E6%89%A3%E7%83%AD%E9%A2%98100%E9%A2%98-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7/">http://fengtingxin.github.io/2022/06/18/%E5%8A%9B%E6%89%A3%E7%83%AD%E9%A2%98100%E9%A2%98-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7/</a>
+                    <a href="http://fengtingxin.github.io/2023/01/31/%E5%8A%9B%E6%89%A3%E7%83%AD%E9%A2%98100%E9%A2%98-%E6%89%BE%E5%88%B0%E6%89%80%E6%9C%89%E6%95%B0%E7%BB%84%E4%B8%AD%E6%B6%88%E5%A4%B1%E7%9A%84%E6%95%B0%E5%AD%97/">http://fengtingxin.github.io/2023/01/31/%E5%8A%9B%E6%89%A3%E7%83%AD%E9%A2%98100%E9%A2%98-%E6%89%BE%E5%88%B0%E6%89%80%E6%9C%89%E6%95%B0%E7%BB%84%E4%B8%AD%E6%B6%88%E5%A4%B1%E7%9A%84%E6%95%B0%E5%AD%97/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -574,17 +582,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/06/18/%E5%8A%9B%E6%89%A3%E7%83%AD%E9%A2%98100%E9%A2%98-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8/">
+                <a href="/2023/01/31/%E5%8A%9B%E6%89%A3%E7%83%AD%E9%A2%98100%E9%A2%98-%E6%89%BE%E5%88%B0%E6%89%80%E6%9C%89%E6%95%B0%E7%BB%84%E4%B8%AD%E6%B6%88%E5%A4%B1%E7%9A%84%E6%95%B0%E5%AD%97/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="力扣热题100题-合并两个有序链表">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="力扣热题100题-找到所有数组中消失的数字">
                         
-                        <span class="card-title">力扣热题100题-合并两个有序链表</span>
+                        <span class="card-title">力扣热题100题-找到所有数组中消失的数字</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -594,9 +603,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-06-18
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-31
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -605,6 +614,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -627,13 +637,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/06/16/%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90/">
+                <a href="/2023/01/30/%E5%8A%9B%E6%89%A3%E7%83%AD%E9%A2%98100%E9%A2%98-%E6%B1%89%E6%98%8E%E8%B7%9D%E7%A6%BB/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="复杂度分析">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="力扣热题100题-汉明距离">
                         
-                        <span class="card-title">复杂度分析</span>
+                        <span class="card-title">力扣热题100题-汉明距离</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -644,7 +654,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-30
                             </span>
                         <span class="publish-author">
                             
@@ -661,8 +671,12 @@
                         <span class="chip bg-color">算法</span>
                     </a>
                     
-                    <a href="/tags/%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90/">
-                        <span class="chip bg-color">复杂度分析</span>
+                    <a href="/tags/%E5%8A%9B%E6%89%A3%E7%83%AD%E9%A2%98100%E9%A2%98/">
+                        <span class="chip bg-color">力扣热题100题</span>
+                    </a>
+                    
+                    <a href="/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6/">
+                        <span class="chip bg-color">二进制</span>
                     </a>
                     
                 </div>
