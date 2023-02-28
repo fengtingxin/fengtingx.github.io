@@ -4,14 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="复杂度分析, 冯廷鑫的日志">
-    <meta name="description" content="事后统计法：把代码跑一遍，通过监控，就得到算法的执行时间和占用的内存大小。
-为什么还需要对算法本身进行时间和复杂度分析呢？
-
-测试结果非常依赖测试环境
-测试结果受数据规模的影响很大
-
-因此需要通过一个不用具体的测试数据来测试，就可以粗略的估">
+    <meta name="keywords" content="力扣热题100题-环形链表, 冯廷鑫的日志">
+    <meta name="description" content="给你一个链表的头节点 head ，判断链表中是否有环。
+如果链表中有某个节点，可以通过连续跟踪 next 指针再次到达，则链表中存在环。 为了表示给定链表中的环，评测系统内部使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -25,7 +20,7 @@
 
     
 
-    <title>复杂度分析 | 冯廷鑫的日志</title>
+    <title>力扣热题100题-环形链表 | 冯廷鑫的日志</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -230,12 +225,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">复杂度分析</h1>
+                    <h1 class="description center-align post-title">力扣热题100题-环形链表</h1>
                 </div>
             </div>
         </div>
@@ -355,8 +350,12 @@
                                 <span class="chip bg-color">算法</span>
                             </a>
                         
-                            <a href="/tags/%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90/">
-                                <span class="chip bg-color">复杂度分析</span>
+                            <a href="/tags/%E5%8A%9B%E6%89%A3%E7%83%AD%E9%A2%98100%E9%A2%98/">
+                                <span class="chip bg-color">力扣热题100题</span>
+                            </a>
+                        
+                            <a href="/tags/%E9%93%BE%E8%A1%A8/">
+                                <span class="chip bg-color">链表</span>
                             </a>
                         
                     </div>
@@ -371,28 +370,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-06-16
+                    2023-02-28
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-02-22
+                    2023-02-28
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    496
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    2 分
                 </div>
                 
 
@@ -415,155 +414,84 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>事后统计法：把代码跑一遍，通过监控，就得到算法的执行时间和占用的内存大小。</p>
-<p>为什么还需要对算法本身进行时间和复杂度分析呢？</p>
-<ol>
-<li>测试结果非常依赖测试环境</li>
-<li>测试结果受数据规模的影响很大</li>
-</ol>
-<p>因此需要通过一个不用具体的测试数据来测试，就可以粗略的估计算法的执行效率的方法。就是时间和空间复杂度。</p>
-<h2 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h2><p>大O时间复杂度表示法（简称时间复杂度）：T(n)&#x3D; O( f(n) ) 解释：T(n)是代码执行时间, f(n)是每行代码执行的总次数 ，O代表代码的执行时间T(n)与f(n)成正比。</p>
-<p>例子：假设一行代码执行一次需要1个unit_time。</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">twoSum</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">int</span> n <span class="token operator">=</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
-  			<span class="token keyword">int</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> <span class="token operator">++</span>j<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                sum <span class="token operator">=</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+</span> nums<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                <p>给你一个链表的头节点 head ，判断链表中是否有环。</p>
+<p>如果链表中有某个节点，可以通过连续跟踪 next 指针再次到达，则链表中存在环。 为了表示给定链表中的环，评测系统内部使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。注意：pos 不作为参数进行传递 。仅仅是为了标识链表的实际情况。</p>
+<p>如果链表中存在环 ，则返回 true 。 否则，返回 false 。</p>
+<p>示例 1：</p>
+<p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/07/circularlinkedlist.png" alt="img"></p>
+<p>输入：head &#x3D; [3,2,0,-4], pos &#x3D; 1<br>输出：true<br>解释：链表中有一个环，其尾部连接到第二个节点。<br>示例 2：</p>
+<p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/07/circularlinkedlist_test2.png" alt="img"></p>
+<p>输入：head &#x3D; [1,2], pos &#x3D; 0<br>输出：true<br>解释：链表中有一个环，其尾部连接到第一个节点。<br>示例 3：</p>
+<p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/07/circularlinkedlist_test3.png" alt="img"></p>
+<p>输入：head &#x3D; [1], pos &#x3D; -1<br>输出：false<br>解释：链表中没有环。</p>
+<p>提示：</p>
+<p>链表中节点的数目范围是 [0, 104]<br>-105 &lt;&#x3D; Node.val &lt;&#x3D; 105<br>pos 为 -1 或者链表中的一个 有效索引 。</p>
+<p>进阶：你能用 O(1)（即，常量）内存解决此问题吗？</p>
+<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/linked-list-cycle">https://leetcode.cn/problems/linked-list-cycle</a></p>
+<p>解法1：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
+ * Definition for singly-linked list.
+ * class ListNode &#123;
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) &#123;
+ *         val = x;
+ *         next = null;
+ *     &#125;
+ * &#125;
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">//初步想法：存储在list中，判断是否存在环</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">hasCycle</span><span class="token punctuation">(</span><span class="token class-name">ListNode</span> head<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>head <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token class-name">Set</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">ListNode</span><span class="token punctuation">></span></span> set <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashSet</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>head <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>set<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span>head<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+                <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
             <span class="token punctuation">&#125;</span>
+            set<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>head<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            head <span class="token operator">=</span> head<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
         <span class="token punctuation">&#125;</span>
-        <span class="token keyword">return</span> sum<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>这个代码的需要的时间为：T(n)&#x3D; （2n^2 + 2n + 3），当n接近无穷大时，我们只需要关心n^2了，所以这个代码的时间复杂度为O(n^2)。</p>
-<p>小方法：</p>
-<ol>
-<li>只关注循环执行次数最多的一段代码</li>
-<li>加法法则：总复杂度等于量级最大的那段代码的复杂度</li>
-<li>乘法法则：嵌套代码的复杂度等于嵌套内外代码复杂度的乘积</li>
-</ol>
-<p><img src="https://img-blog.csdnimg.cn/20210414152828324.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3R6enQwMQ==,size_16,color_FFFFFF,t_70" alt="img"></p>
-<table>
-<thead>
-<tr>
-<th>排序法</th>
-<th>最差时间分析</th>
-<th>平均时间复杂度</th>
-<th>稳定度</th>
-<th>空间复杂度</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>冒泡排序</td>
-<td>O(n2)</td>
-<td>O(n2)</td>
-<td>稳定</td>
-<td>O(1)</td>
-</tr>
-<tr>
-<td>快速排序</td>
-<td>O(n2)</td>
-<td>O(n*log2n)</td>
-<td>不稳定</td>
-<td>O(log2n)~O(n)</td>
-</tr>
-<tr>
-<td>选择排序</td>
-<td>O(n2)</td>
-<td>O(n2)</td>
-<td>稳定</td>
-<td>O(1)</td>
-</tr>
-<tr>
-<td>二叉树排序</td>
-<td>O(n2)</td>
-<td>O(n*log2n)</td>
-<td>不一顶</td>
-<td>O(n)</td>
-</tr>
-<tr>
-<td>插入排序</td>
-<td>O(n2)</td>
-<td>O(n2)</td>
-<td>稳定</td>
-<td>O(1)</td>
-</tr>
-<tr>
-<td>堆排序</td>
-<td>O(n*log2n)</td>
-<td>O(n*log2n)</td>
-<td>不稳定</td>
-<td>O(1)</td>
-</tr>
-<tr>
-<td>希尔排序</td>
-<td>O</td>
-<td>O</td>
-<td>不稳定</td>
-<td>O(1)</td>
-</tr>
-</tbody></table>
-<p>简单理解下：什么情况下是O(logn)</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
- <span class="token keyword">while</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;=</span> n<span class="token punctuation">)</span>  <span class="token punctuation">&#123;</span>
-   i <span class="token operator">=</span> i <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">;</span>
- <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<h2 id="空间复杂度分析"><a href="#空间复杂度分析" class="headerlink" title="空间复杂度分析"></a>空间复杂度分析</h2><p>简介：空间复杂度全称为渐进空间复杂度，表示算法的存储空间与数据规模之间的增长关系。</p>
-<p><strong>需要看代码申请了多大的占用空间</strong>，比如：</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">twoSum</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">int</span> n <span class="token operator">=</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
-  			<span class="token keyword">int</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> <span class="token operator">++</span>j<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                sum <span class="token operator">=</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+</span> nums<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
-            <span class="token punctuation">&#125;</span>
-        <span class="token punctuation">&#125;</span>
-        <span class="token keyword">return</span> sum<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>这个空间复杂度是O(1)</p>
-<p>我们常见的空间复杂度就是O(1)、O(n)、O(n^2)。像这种O(n*log2n)平常用不到，掌握之前的足够。</p>
-<h2 id="时间复杂度分析进阶"><a href="#时间复杂度分析进阶" class="headerlink" title="时间复杂度分析进阶"></a>时间复杂度分析进阶</h2><h3 id="最好、最坏情况时间复杂度"><a href="#最好、最坏情况时间复杂度" class="headerlink" title="最好、最坏情况时间复杂度"></a>最好、最坏情况时间复杂度</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">find</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">,</span><span class="token keyword">int</span> x<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">int</span> n <span class="token operator">=</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> x<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-            <span class="token keyword">return</span> i<span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-    <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>这段代码在最好情况下时间复杂度为O(1) ，最坏情况下时间复杂度为O(n)</p>
-<h3 id="平均时间复杂度"><a href="#平均时间复杂度" class="headerlink" title="平均时间复杂度"></a>平均时间复杂度</h3><p>大多数时间，使用一个复杂度就可以了。</p>
-<p>平均时间复杂度分析法需要计算每一个可能出现的可能及加上一部分概率。</p>
-<h3 id="均摊时间复杂度"><a href="#均摊时间复杂度" class="headerlink" title="均摊时间复杂度"></a>均摊时间复杂度</h3><pre class="line-numbers language-none"><code class="language-none">&#x2F;**
- * 代码实现了往数组中不断插入数据。当数组满了，就将所有元素之和赋值给首位。如此周而复始。
- **&#x2F;
- &#x2F;&#x2F; array表示一个长度为n的数组
- &#x2F;&#x2F; 代码中的array.length就等于n
- int[] array &#x3D; new int[n];
- int count &#x3D; 0;
- 
- &#x2F;&#x2F; 会有程序不断调用 insert() 方法
- void insert(int val) &#123;
-    if (count &#x3D;&#x3D; array.length) &#123;
-       int sum &#x3D; 0;
-       for (int i &#x3D; 0; i &lt; array.length; ++i) &#123;
-          sum &#x3D; sum + array[i];
-       &#125;
-       array[0] &#x3D; sum;
-       count &#x3D; 1;
-    &#125;
+<p>时间复杂度O(n)、空间复杂度O（n）</p>
+<p>解法2：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
+ * Definition for singly-linked list.
+ * class ListNode &#123;
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) &#123;
+ *         val = x;
+ *         next = null;
+ *     &#125;
+ * &#125;
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">//第二次想法：快慢指针</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">hasCycle</span><span class="token punctuation">(</span><span class="token class-name">ListNode</span> head<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>head <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">||</span> head<span class="token punctuation">.</span>next <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token class-name">ListNode</span> fast <span class="token operator">=</span> head<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
 
-    array[count] &#x3D; val;
-    ++count;
- &#125;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>head <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> fast <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> head <span class="token operator">!=</span> fast<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            head <span class="token operator">=</span> head<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+            fast <span class="token operator">=</span> fast<span class="token punctuation">.</span>next <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">?</span> <span class="token keyword">null</span> <span class="token operator">:</span> fast<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
 
-<p>继续看在数组中插入数据的这个例子。每一次 O(n) 的插入操作，都会跟着 n-1 次 O(1) 的插入操作，所以把耗时多的那次操作均摊到接下来的 n-1 次耗时少的操作上，均摊下来，这一组连续的操作的均摊时间复杂度就是 O(1)。这就是均摊分析的大致思路。</p>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>fast <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+
+        <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 
                 
             </div>
@@ -590,7 +518,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://fengtingxin.github.io/2022/06/16/%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90/">http://fengtingxin.github.io/2022/06/16/%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90/</a>
+                    <a href="http://fengtingxin.github.io/2023/02/28/%E5%8A%9B%E6%89%A3%E7%83%AD%E9%A2%98100%E9%A2%98-%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8/">http://fengtingxin.github.io/2023/02/28/%E5%8A%9B%E6%89%A3%E7%83%AD%E9%A2%98100%E9%A2%98-%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -632,8 +560,12 @@
                                     <span class="chip bg-color">算法</span>
                                 </a>
                             
-                                <a href="/tags/%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90/">
-                                    <span class="chip bg-color">复杂度分析</span>
+                                <a href="/tags/%E5%8A%9B%E6%89%A3%E7%83%AD%E9%A2%98100%E9%A2%98/">
+                                    <span class="chip bg-color">力扣热题100题</span>
+                                </a>
+                            
+                                <a href="/tags/%E9%93%BE%E8%A1%A8/">
+                                    <span class="chip bg-color">链表</span>
                                 </a>
                             
                         </div>
@@ -678,17 +610,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/06/18/%E5%8A%9B%E6%89%A3%E7%83%AD%E9%A2%98100%E9%A2%98-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7/">
+                <a href="/2023/02/28/%E5%8A%9B%E6%89%A3%E7%83%AD%E9%A2%98100%E9%A2%98-%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="力扣热题100题-有效的括号">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="力扣热题100题-环形链表">
                         
-                        <span class="card-title">力扣热题100题-有效的括号</span>
+                        <span class="card-title">力扣热题100题-环形链表</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -698,9 +631,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-06-18
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-28
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -709,6 +642,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -718,6 +652,10 @@
                     
                     <a href="/tags/%E5%8A%9B%E6%89%A3%E7%83%AD%E9%A2%98100%E9%A2%98/">
                         <span class="chip bg-color">力扣热题100题</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%93%BE%E8%A1%A8/">
+                        <span class="chip bg-color">链表</span>
                     </a>
                     
                 </div>
@@ -731,13 +669,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/06/16/%E5%8A%9B%E6%89%A3%E7%83%AD%E9%A2%98100%E9%A2%98-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/">
+                <a href="/2023/02/24/%E5%8A%9B%E6%89%A3%E7%83%AD%E9%A2%98100%E9%A2%98-160-%E7%9B%B8%E4%BA%A4%E9%93%BE%E8%A1%A8/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="力扣热题100题-两数之和">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="力扣热题100题-160. 相交链表">
                         
-                        <span class="card-title">力扣热题100题-两数之和</span>
+                        <span class="card-title">力扣热题100题-160. 相交链表</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -748,7 +686,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-24
                             </span>
                         <span class="publish-author">
                             
@@ -769,8 +707,8 @@
                         <span class="chip bg-color">力扣热题100题</span>
                     </a>
                     
-                    <a href="/tags/%E6%95%B0%E7%BB%84/">
-                        <span class="chip bg-color">数组</span>
+                    <a href="/tags/%E9%93%BE%E8%A1%A8/">
+                        <span class="chip bg-color">链表</span>
                     </a>
                     
                 </div>
