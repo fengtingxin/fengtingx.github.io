@@ -4,14 +4,17 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="力扣热题100题-二叉树的直径, 冯廷鑫的日志">
-    <meta name="description" content="题目：
-二叉树的直径给定一棵二叉树，你需要计算它的直径长度。一棵二叉树的直径长度是任意两个结点路径长度中的最大值。这条路径可能穿过也可能不穿过根结点。示例 :给定二叉树
+    <meta name="keywords" content="2269. 找到一个数字的 K 美丽值, 冯廷鑫的日志">
+    <meta name="description" content="一个整数 num 的 k 美丽值定义为 num 中符合以下条件的 子字符串 数目：
 
-    1
-   &amp;#x2F; \
-  2   3
- &amp;#x2F; ">
+子字符串长度为 k 。
+子字符串能整除 num 。
+
+给你整数 num 和 k ，请你返回 num 的 k 美丽值。
+注意：
+
+允许有 前缀 0 。
+0 ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -25,7 +28,7 @@
 
     
 
-    <title>力扣热题100题-二叉树的直径 | 冯廷鑫的日志</title>
+    <title>2269. 找到一个数字的 K 美丽值 | 冯廷鑫的日志</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -230,12 +233,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">力扣热题100题-二叉树的直径</h1>
+                    <h1 class="description center-align post-title">2269. 找到一个数字的 K 美丽值</h1>
                 </div>
             </div>
         </div>
@@ -355,18 +358,23 @@
                                 <span class="chip bg-color">算法</span>
                             </a>
                         
-                            <a href="/tags/%E5%8A%9B%E6%89%A3%E7%83%AD%E9%A2%98100%E9%A2%98/">
-                                <span class="chip bg-color">力扣热题100题</span>
-                            </a>
-                        
-                            <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/">
-                                <span class="chip bg-color">二叉树</span>
+                            <a href="/tags/%E5%AE%9A%E9%95%BF%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E4%B8%93%E9%A2%98/">
+                                <span class="chip bg-color">定长滑动窗口专题</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                算法
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -375,21 +383,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-06-12
+                    2024-07-20
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-07-19
+                    2024-07-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    525
+                    518
                 </div>
                 
 
@@ -419,78 +427,104 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h2><ol start="543">
-<li>二叉树的直径<br>给定一棵二叉树，你需要计算它的直径长度。一棵二叉树的直径长度是任意两个结点路径长度中的最大值。这条路径可能穿过也可能不穿过根结点。<br>示例 :<br>给定二叉树</li>
-</ol>
-<pre class="line-numbers language-none"><code class="language-none">    1
-   &#x2F; \
-  2   3
- &#x2F; \     
-4   5    <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <p>一个整数 <code>num</code> 的 <strong>k</strong> 美丽值定义为 <code>num</code> 中符合以下条件的 <strong>子字符串</strong> 数目：</p>
+<ul>
+<li>子字符串长度为 <code>k</code> 。</li>
+<li>子字符串能整除 <code>num</code> 。</li>
+</ul>
+<p>给你整数 <code>num</code> 和 <code>k</code> ，请你返回 <code>num</code> 的 k 美丽值。</p>
+<p>注意：</p>
+<ul>
+<li>允许有 <strong>前缀</strong> <strong>0</strong> 。</li>
+<li><code>0</code> 不能整除任何值。</li>
+</ul>
+<p>一个 <strong>子字符串</strong> 是一个字符串里的连续一段字符序列。</p>
+<p><strong>示例 1：</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">输入：num &#x3D; 240, k &#x3D; 2
+输出：2
+解释：以下是 num 里长度为 k 的子字符串：
+- &quot;240&quot; 中的 &quot;24&quot; ：24 能整除 240 。
+- &quot;240&quot; 中的 &quot;40&quot; ：40 能整除 240 。
+所以，k 美丽值为 2 。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>返回 <strong>3</strong>, 它的长度是路径 [4,2,1,3] 或者 [5,2,1,3]。</p>
-<p><strong>注意：</strong>两结点之间的路径长度是以它们之间边的数目表示。</p>
-<p>来源：力扣（LeetCode）链接：<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/diameter-of-binary-tree">https://leetcode.cn/problems/diameter-of-binary-tree</a></p>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>前提：了解二叉树的前序、中序、后序、层级遍历</p>
-<p>参考：<a href="https://fengtingxin.github.io/2022/06/12/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/">二叉树的基本知识</a></p>
-<p>1.暴力解法：循环当前二叉树，已当前节点为根，求左子树和右子树的最大深度之和。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
- * Definition for a binary tree node.
- * public class TreeNode &#123;
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() &#123;&#125;
- *     TreeNode(int val) &#123; this.val = val; &#125;
- *     TreeNode(int val, TreeNode left, TreeNode right) &#123;
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     &#125;
- * &#125;
- */</span>
-<span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
-    <span class="token comment">/**
-     * 二叉树的直径
-     * 给定一棵二叉树，你需要计算它的直径长度。一棵二叉树的直径长度是任意两个结点路径长度中的最大值。这条路径可能穿过也可能不穿过根结点。
-     */</span>
-    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">diameterOfBinaryTree</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> root<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token comment">/**
-         *            1
-         *          / \
-         *        2    3
-         *       / \  /
-         *     4   5 6
-         * 已此为例，我们想求最大直径，也就是3->4 的距离，那么就是节点1 左子节点和右子节点的深度
-         * 虚拟公式：
-         * depth（1） = depth(2)+depth(3)
-         *
-         *
-         */</span>
-        <span class="token function">depth</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> MAX<span class="token punctuation">;</span>
+<p><strong>示例 2：</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">输入：num &#x3D; 430043, k &#x3D; 2
+输出：2
+解释：以下是 num 里长度为 k 的子字符串：
+- &quot;430043&quot; 中的 &quot;43&quot; ：43 能整除 430043 。
+- &quot;430043&quot; 中的 &quot;30&quot; ：30 不能整除 430043 。
+- &quot;430043&quot; 中的 &quot;00&quot; ：0 不能整除 430043 。
+- &quot;430043&quot; 中的 &quot;04&quot; ：4 不能整除 430043 。
+- &quot;430043&quot; 中的 &quot;43&quot; ：43 能整除 430043 。
+所以，k 美丽值为 2 。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= num &lt;= 109</code></li>
+<li><code>1 &lt;= k &lt;= num.length</code> （将 <code>num</code> 视为字符串）</li>
+</ul>
+<p>解法1：暴力破解：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">divisorSubstrings</span><span class="token punctuation">(</span><span class="token keyword">int</span> num<span class="token punctuation">,</span> <span class="token keyword">int</span> k<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">char</span><span class="token punctuation">[</span><span class="token punctuation">]</span> array <span class="token operator">=</span> <span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toCharArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> result <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> array<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">+</span> k <span class="token operator">&lt;=</span> array<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token comment">// 判断是否可以整除</span>
+                <span class="token keyword">int</span> kSub <span class="token operator">=</span> <span class="token function">getShortK</span><span class="token punctuation">(</span>array<span class="token punctuation">,</span> i<span class="token punctuation">,</span> i <span class="token operator">+</span> k <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"kSub = "</span> <span class="token operator">+</span> kSub<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>kSub <span class="token operator">!=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> num <span class="token operator">%</span> kSub <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                    result<span class="token operator">++</span><span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> result<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 
-    <span class="token comment">/**
-     * 在获取二叉树深度的过程中，已经知道了左子树和右子树的深度，所以执行的过程中可以知道叶子节点间的最大长度。
-     */</span>
-    <span class="token keyword">public</span> <span class="token keyword">int</span> MAX <span class="token operator">=</span> <span class="token number">0</span> <span class="token punctuation">;</span>
-    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">depth</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> root<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>root <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-            <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> <span class="token function">getShortK</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">[</span><span class="token punctuation">]</span> array<span class="token punctuation">,</span> <span class="token keyword">int</span> start<span class="token punctuation">,</span> <span class="token keyword">int</span> end<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">StringBuilder</span> builder <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StringBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> start<span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> end<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            builder<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>array<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">&#125;</span>
-        <span class="token keyword">int</span> leftDepth <span class="token operator">=</span> <span class="token function">depth</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">int</span> rightDepth <span class="token operator">=</span> <span class="token function">depth</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">int</span> sum <span class="token operator">=</span> leftDepth <span class="token operator">+</span> rightDepth<span class="token punctuation">;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>sum <span class="token operator">></span> MAX<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-            MAX <span class="token operator">=</span> sum<span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-        <span class="token keyword">return</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>leftDepth<span class="token punctuation">,</span>rightDepth<span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>builder<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>时间复杂度：O(N)，也就是遍历这一个二叉树的时间</p>
-<p>空间复杂度：O(树的Height) Height 是二叉树的高度。</p>
+
+
+<p>其他人：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">divisorSubstrings</span><span class="token punctuation">(</span><span class="token keyword">int</span> num<span class="token punctuation">,</span> <span class="token keyword">int</span> k<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">String</span> value <span class="token operator">=</span> <span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        
+        <span class="token keyword">int</span> left <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment">//左侧索引</span>
+
+        <span class="token keyword">int</span> right <span class="token operator">=</span> k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">//右侧索引</span>
+
+        <span class="token keyword">int</span> temp <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment">// 被整除的值</span>
+
+        <span class="token keyword">int</span> result <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment">// 美丽值结果</span>
+
+        <span class="token keyword">while</span><span class="token punctuation">(</span>right <span class="token operator">&lt;</span> value<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> left<span class="token punctuation">;</span>i<span class="token operator">&lt;</span> right<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+                <span class="token keyword">int</span> t <span class="token operator">=</span> value<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token char">'0'</span><span class="token punctuation">;</span>
+                temp <span class="token operator">+=</span> t <span class="token operator">*</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">pow</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span>right<span class="token operator">-</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>temp <span class="token operator">!=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> num <span class="token operator">%</span> temp <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+                result<span class="token operator">++</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+            <span class="token comment">//被整除的值归0</span>
+            temp <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+            <span class="token comment">//指针同时移动</span>
+            right<span class="token operator">++</span><span class="token punctuation">;</span>
+            left<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 
                 
             </div>
@@ -517,7 +551,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://fengtingxin.github.io/2022/06/12/li-kou-re-ti-100-ti-er-cha-shu-de-zhi-jing/">http://fengtingxin.github.io/2022/06/12/li-kou-re-ti-100-ti-er-cha-shu-de-zhi-jing/</a>
+                    <a href="http://fengtingxin.github.io/2024/07/20/algorithm/zhao-dao-yi-ge-shu-zi-de-k-mei-li-zhi/">http://fengtingxin.github.io/2024/07/20/algorithm/zhao-dao-yi-ge-shu-zi-de-k-mei-li-zhi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -559,12 +593,8 @@
                                     <span class="chip bg-color">算法</span>
                                 </a>
                             
-                                <a href="/tags/%E5%8A%9B%E6%89%A3%E7%83%AD%E9%A2%98100%E9%A2%98/">
-                                    <span class="chip bg-color">力扣热题100题</span>
-                                </a>
-                            
-                                <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/">
-                                    <span class="chip bg-color">二叉树</span>
+                                <a href="/tags/%E5%AE%9A%E9%95%BF%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E4%B8%93%E9%A2%98/">
+                                    <span class="chip bg-color">定长滑动窗口专题</span>
                                 </a>
                             
                         </div>
@@ -609,17 +639,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/06/12/er-cha-shu-de-ji-ben-zhi-shi/">
+                <a href="/2024/07/20/algorithm/zhao-dao-yi-ge-shu-zi-de-k-mei-li-zhi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="二叉树的基本知识">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="2269. 找到一个数字的 K 美丽值">
                         
-                        <span class="card-title">二叉树的基本知识</span>
+                        <span class="card-title">2269. 找到一个数字的 K 美丽值</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -629,17 +660,22 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-06-12
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-07-20
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            冯廷鑫
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -647,8 +683,8 @@
                         <span class="chip bg-color">算法</span>
                     </a>
                     
-                    <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/">
-                        <span class="chip bg-color">二叉树</span>
+                    <a href="/tags/%E5%AE%9A%E9%95%BF%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E4%B8%93%E9%A2%98/">
+                        <span class="chip bg-color">定长滑动窗口专题</span>
                     </a>
                     
                 </div>
@@ -662,13 +698,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/06/10/chang-yong-linux-ming-ling/">
+                <a href="/2024/07/18/algorithm/1456.ding-chang-zi-chuan-zhong-yuan-yin-de-zui-da-shu-mu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="常用linux命令">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="1456. 定长子串中元音的最大数目">
                         
-                        <span class="card-title">常用linux命令</span>
+                        <span class="card-title">1456. 定长子串中元音的最大数目</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -679,12 +715,16 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-10
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-07-18
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            冯廷鑫
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -692,8 +732,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/linux/">
-                        <span class="chip bg-color">linux</span>
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%AE%9A%E9%95%BF%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E4%B8%93%E9%A2%98/">
+                        <span class="chip bg-color">定长滑动窗口专题</span>
                     </a>
                     
                 </div>
