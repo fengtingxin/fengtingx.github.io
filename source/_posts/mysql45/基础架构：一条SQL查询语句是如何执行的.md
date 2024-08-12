@@ -5,7 +5,6 @@ categories:
   - Mysql
 tags:
   - MqSQL实战45讲
-  - 待完善
 ---
 
 ![1](img/mysql45/1.png)
