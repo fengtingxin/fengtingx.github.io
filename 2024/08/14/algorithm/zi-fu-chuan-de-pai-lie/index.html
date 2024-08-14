@@ -4,10 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="力扣热题100题-买卖股票的最佳时机, 冯廷鑫的日志">
-    <meta name="description" content="给定一个数组 prices ，它的第 i 个元素 prices[i] 表示一支给定股票第 i 天的价格。
-你只能选择 某一天 买入这只股票，并选择在 未来的某一个不同的日子 卖出该股票。设计一个算法来计算你所能获取的最大利润。
-返回你可以从">
+    <meta name="keywords" content="page, 冯廷鑫的日志">
+    <meta name="description" content="给你两个字符串 s1 和 s2 ，写一个函数来判断 s2 是否包含 s1 的排列。如果是，返回 true ；否则，返回 false 。
+换句话说，s1 的排列之一是 s2 的 子串 。
+示例 1：
+输入：s1 &amp;#x3D; &amp;quot;ab">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -21,7 +22,7 @@
 
     
 
-    <title>力扣热题100题-买卖股票的最佳时机 | 冯廷鑫的日志</title>
+    <title>page | 冯廷鑫的日志</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -226,12 +227,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">力扣热题100题-买卖股票的最佳时机</h1>
+                    <h1 class="description center-align post-title">page</h1>
                 </div>
             </div>
         </div>
@@ -351,18 +352,23 @@
                                 <span class="chip bg-color">算法</span>
                             </a>
                         
-                            <a href="/tags/%E5%8A%9B%E6%89%A3%E7%83%AD%E9%A2%98100%E9%A2%98/">
-                                <span class="chip bg-color">力扣热题100题</span>
-                            </a>
-                        
-                            <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
-                                <span class="chip bg-color">动态规划</span>
+                            <a href="/tags/%E5%AE%9A%E9%95%BF%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E4%B8%93%E9%A2%98/">
+                                <span class="chip bg-color">定长滑动窗口专题</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                算法
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -371,21 +377,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-03-15
+                    2024-08-14
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-08-13
+                    2024-08-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    391
+                    363
                 </div>
                 
 
@@ -415,34 +421,93 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>给定一个数组 prices ，它的第 i 个元素 prices[i] 表示一支给定股票第 i 天的价格。</p>
-<p>你只能选择 某一天 买入这只股票，并选择在 未来的某一个不同的日子 卖出该股票。设计一个算法来计算你所能获取的最大利润。</p>
-<p>返回你可以从这笔交易中获取的最大利润。如果你不能获取任何利润，返回 0 。</p>
-<p>示例 1：</p>
-<p>输入：[7,1,5,3,6,4]<br>输出：5<br>解释：在第 2 天（股票价格 &#x3D; 1）的时候买入，在第 5 天（股票价格 &#x3D; 6）的时候卖出，最大利润 &#x3D; 6-1 &#x3D; 5 。<br>     注意利润不能是 7-1 &#x3D; 6, 因为卖出价格需要大于买入价格；同时，你不能在买入前卖出股票。<br>示例 2：</p>
-<p>输入：prices &#x3D; [7,6,4,3,1]<br>输出：0<br>解释：在这种情况下, 没有交易完成, 所以最大利润为 0。</p>
-<p>提示：</p>
-<p>1 &lt;&#x3D; prices.length &lt;&#x3D; 10^5<br>0 &lt;&#x3D; prices[i] &lt;&#x3D; 10^4</p>
-<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/best-time-to-buy-and-sell-stock">https://leetcode.cn/problems/best-time-to-buy-and-sell-stock</a></p>
-<p>解法1：暴力解法，解法的结果是超时.</p>
+                <p>给你两个字符串 <code>s1</code> 和 <code>s2</code> ，写一个函数来判断 <code>s2</code> 是否包含 <code>s1</code> 的排列。如果是，返回 <code>true</code> ；否则，返回 <code>false</code> 。</p>
+<p>换句话说，<code>s1</code> 的排列之一是 <code>s2</code> 的 <strong>子串</strong> 。</p>
+<p><strong>示例 1：</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">输入：s1 &#x3D; &quot;ab&quot; s2 &#x3D; &quot;eidbaooo&quot;
+输出：true
+解释：s2 包含 s1 的排列之一 (&quot;ba&quot;).<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>示例 2：</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">输入：s1&#x3D; &quot;ab&quot; s2 &#x3D; &quot;eidboaoo&quot;
+输出：false<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= s1.length, s2.length &lt;= 10^4</code></li>
+<li><code>s1</code> 和 <code>s2</code> 仅包含小写字母</li>
+</ul>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">maxProfit</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> prices<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">int</span> result <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> prices<span class="token punctuation">.</span>length<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-            <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> prices<span class="token punctuation">.</span>length<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-                <span class="token keyword">int</span> temp <span class="token operator">=</span> prices<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">-</span> prices<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
-                <span class="token keyword">if</span><span class="token punctuation">(</span> temp <span class="token operator">></span> result<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-                    result <span class="token operator">=</span> temp<span class="token punctuation">;</span>
-                <span class="token punctuation">&#125;</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">checkInclusion</span><span class="token punctuation">(</span><span class="token class-name">String</span> s1<span class="token punctuation">,</span> <span class="token class-name">String</span> s2<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+
+        <span class="token comment">//擦，谁能</span>
+        <span class="token comment">//检查是否满足.</span>
+        <span class="token keyword">int</span> s1Len <span class="token operator">=</span> s1<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> s2Len <span class="token operator">=</span> s2<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">if</span><span class="token punctuation">(</span>s1Len <span class="token operator">></span> s2Len<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        
+        <span class="token comment">//s1 的字符数组</span>
+        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> count1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token number">26</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token comment">//s2 的字符数组</span>
+        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> count2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token number">26</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> s1Len<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            count1<span class="token punctuation">[</span>s1<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token char">'a'</span><span class="token punctuation">]</span><span class="token operator">++</span><span class="token punctuation">;</span>
+            count2<span class="token punctuation">[</span>s2<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token char">'a'</span><span class="token punctuation">]</span><span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token comment">//如果两个数组相同，则代表相同</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>count1<span class="token punctuation">,</span> count2<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> s1Len<span class="token punctuation">;</span> i <span class="token operator">&lt;</span> s2Len<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            count2<span class="token punctuation">[</span>s2<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token char">'a'</span><span class="token punctuation">]</span><span class="token operator">++</span><span class="token punctuation">;</span>
+
+            <span class="token comment">//减去移动之后的数字</span>
+            count2<span class="token punctuation">[</span>s2<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>i <span class="token operator">-</span> s1Len<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token char">'a'</span><span class="token punctuation">]</span><span class="token operator">--</span><span class="token punctuation">;</span>
+            <span class="token comment">//如果两个数组相同，则代表相同</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>count1<span class="token punctuation">,</span> count2<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
             <span class="token punctuation">&#125;</span>
         <span class="token punctuation">&#125;</span>
-        <span class="token keyword">return</span> result<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>时间复杂度是O(n^2) 空间复杂度O(1)</p>
-<p>那么我们解决这种问题呢？</p>
-<p>这是一个明显的动态规划的问题：</p>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token comment">// private boolean checkSubStr(char[] array1,char[] array2)&#123;</span>
+        
+    <span class="token comment">//     //当前相同的个数</span>
+    <span class="token comment">//     int same = 0;</span>
+    <span class="token comment">//     //需要相同的个数</span>
+    <span class="token comment">//     int needSameNum = array1.length;</span>
+    <span class="token comment">//     //s2的索引</span>
+    <span class="token comment">//     int s2Idx = 0;</span>
+    <span class="token comment">//     //s1的索引</span>
+    <span class="token comment">//     int s1Idx = 0;</span>
+
+    <span class="token comment">//     for(; s2Idx&lt; array2.length; s2Idx++)&#123;</span>
+    <span class="token comment">//         if(same == needSameNum)&#123;</span>
+    <span class="token comment">//             return true;</span>
+    <span class="token comment">//         &#125;</span>
+    <span class="token comment">//         if(array1[s1Idx] == array2[s2Idx])&#123;</span>
+    <span class="token comment">//             same++;</span>
+    <span class="token comment">//             s1Idx++;</span>
+    <span class="token comment">//         &#125; else &#123;</span>
+    <span class="token comment">//             s1Idx=0;</span>
+    <span class="token comment">//             same=0;</span>
+    <span class="token comment">//         &#125;</span>
+    <span class="token comment">//     &#125;</span>
+    <span class="token comment">//     if(same == needSameNum)&#123;</span>
+    <span class="token comment">//         return true;</span>
+    <span class="token comment">//     &#125;</span>
+    <span class="token comment">//     return false;</span>
+    <span class="token comment">// &#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 
                 
             </div>
@@ -469,7 +534,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://fengtingxin.github.io/2023/03/15/li-kou-re-ti-100-ti-mai-mai-gu-piao-de-zui-jia-shi-ji/">http://fengtingxin.github.io/2023/03/15/li-kou-re-ti-100-ti-mai-mai-gu-piao-de-zui-jia-shi-ji/</a>
+                    <a href="http://fengtingxin.github.io/2024/08/14/algorithm/zi-fu-chuan-de-pai-lie/">http://fengtingxin.github.io/2024/08/14/algorithm/zi-fu-chuan-de-pai-lie/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -511,12 +576,8 @@
                                     <span class="chip bg-color">算法</span>
                                 </a>
                             
-                                <a href="/tags/%E5%8A%9B%E6%89%A3%E7%83%AD%E9%A2%98100%E9%A2%98/">
-                                    <span class="chip bg-color">力扣热题100题</span>
-                                </a>
-                            
-                                <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
-                                    <span class="chip bg-color">动态规划</span>
+                                <a href="/tags/%E5%AE%9A%E9%95%BF%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E4%B8%93%E9%A2%98/">
+                                    <span class="chip bg-color">定长滑动窗口专题</span>
                                 </a>
                             
                         </div>
@@ -561,17 +622,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/03/17/shan-chu-pai-xu-lian-biao-zhong-de-chong-fu-yuan-su/">
+                <a href="/2024/08/14/algorithm/zi-fu-chuan-de-pai-lie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="删除排序链表中的重复元素">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="page">
                         
-                        <span class="card-title">删除排序链表中的重复元素</span>
+                        <span class="card-title">page</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -581,17 +643,22 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-03-17
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-08-14
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            冯廷鑫
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -599,8 +666,8 @@
                         <span class="chip bg-color">算法</span>
                     </a>
                     
-                    <a href="/tags/%E9%93%BE%E8%A1%A8/">
-                        <span class="chip bg-color">链表</span>
+                    <a href="/tags/%E5%AE%9A%E9%95%BF%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E4%B8%93%E9%A2%98/">
+                        <span class="chip bg-color">定长滑动窗口专题</span>
                     </a>
                     
                 </div>
@@ -614,13 +681,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/03/06/zhi-chu-xian-yi-ci-de-shu-zi-3/">
+                <a href="/2024/08/14/algorithm/hua-dong-zi-shu-zu-de-mei-li-zhi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="只出现一次的数字3">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="page">
                         
-                        <span class="card-title">只出现一次的数字3</span>
+                        <span class="card-title">page</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -631,12 +698,16 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-06
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-08-14
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            冯廷鑫
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -648,8 +719,8 @@
                         <span class="chip bg-color">算法</span>
                     </a>
                     
-                    <a href="/tags/%E5%BC%82%E6%88%96%E4%B8%8E/">
-                        <span class="chip bg-color">异或与</span>
+                    <a href="/tags/%E5%AE%9A%E9%95%BF%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E4%B8%93%E9%A2%98/">
+                        <span class="chip bg-color">定长滑动窗口专题</span>
                     </a>
                     
                 </div>
