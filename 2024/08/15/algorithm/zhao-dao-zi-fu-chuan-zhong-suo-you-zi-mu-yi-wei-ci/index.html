@@ -4,12 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="643.子数组最大平均数I, 冯廷鑫的日志">
-    <meta name="description" content="给你一个由 n 个元素组成的整数数组 nums 和一个整数 k 。
-请你找出平均数最大且 长度为 k 的连续子数组，并输出该最大平均数。
-任何误差小于 10-5 的答案都将被视为正确答案。
-示例 1：
-输入：nums &amp;#x3D; [1,1">
+    <meta name="keywords" content="438.找到字符串中所有字母异位词, 冯廷鑫的日志">
+    <meta name="description" content="给定两个字符串 s 和 p，找到 s 中所有 p 的 异位词 的子串，返回这些子串的起始索引。不考虑答案输出的顺序。
+异位词 指由相同字母重排列形成的字符串（包括相同的字符串）。
+示例 1:
+输入: s &amp;#x3D; &amp;quot;cbaeb">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -23,7 +22,7 @@
 
     
 
-    <title>643.子数组最大平均数I | 冯廷鑫的日志</title>
+    <title>438.找到字符串中所有字母异位词 | 冯廷鑫的日志</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -228,12 +227,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">643.子数组最大平均数I</h1>
+                    <h1 class="description center-align post-title">438.找到字符串中所有字母异位词</h1>
                 </div>
             </div>
         </div>
@@ -378,7 +377,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2024-07-29
+                    2024-08-15
                 </div>
                 
 
@@ -392,7 +391,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    228
+                    365
                 </div>
                 
 
@@ -422,44 +421,62 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>给你一个由 <code>n</code> 个元素组成的整数数组 <code>nums</code> 和一个整数 <code>k</code> 。</p>
-<p>请你找出平均数最大且 <strong>长度为 <code>k</code></strong> 的连续子数组，并输出该最大平均数。</p>
-<p>任何误差小于 <code>10-5</code> 的答案都将被视为正确答案。</p>
-<p><strong>示例 1：</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">输入：nums &#x3D; [1,12,-5,-6,50,3], k &#x3D; 4
-输出：12.75
-解释：最大平均数 (12-5-6+50)&#x2F;4 &#x3D; 51&#x2F;4 &#x3D; 12.75<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+                <p>给定两个字符串 <code>s</code> 和 <code>p</code>，找到 <code>s</code> 中所有 <code>p</code> 的 <strong>异位词</strong> 的子串，返回这些子串的起始索引。不考虑答案输出的顺序。</p>
+<p><strong>异位词</strong> 指由相同字母重排列形成的字符串（包括相同的字符串）。</p>
+<p><strong>示例 1:</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">输入: s &#x3D; &quot;cbaebabacd&quot;, p &#x3D; &quot;abc&quot;
+输出: [0,6]
+解释:
+起始索引等于 0 的子串是 &quot;cba&quot;, 它是 &quot;abc&quot; 的异位词。
+起始索引等于 6 的子串是 &quot;bac&quot;, 它是 &quot;abc&quot; 的异位词。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><strong>示例 2：</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">输入：nums &#x3D; [5], k &#x3D; 1
-输出：5.00000<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p> <strong>示例 2:</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">输入: s &#x3D; &quot;abab&quot;, p &#x3D; &quot;ab&quot;
+输出: [0,1,2]
+解释:
+起始索引等于 0 的子串是 &quot;ab&quot;, 它是 &quot;ab&quot; 的异位词。
+起始索引等于 1 的子串是 &quot;ba&quot;, 它是 &quot;ab&quot; 的异位词。
+起始索引等于 2 的子串是 &quot;ab&quot;, 它是 &quot;ab&quot; 的异位词。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><strong>提示：</strong></p>
+<p><strong>提示:</strong></p>
 <ul>
-<li><code>n == nums.length</code></li>
-<li><code>1 &lt;= k &lt;= n &lt;= 10^5</code></li>
-<li><code>-10^4 &lt;= nums[i] &lt;= 10^4</code></li>
+<li><code>1 &lt;= s.length, p.length &lt;= 3 * 10^4</code></li>
+<li><code>s</code> 和 <code>p</code> 仅包含小写字母</li>
 </ul>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">public</span> <span class="token keyword">double</span> <span class="token function">findMaxAverage</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> k<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">int</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span> k<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-            sum <span class="token operator">+=</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> <span class="token function">findAnagrams</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">,</span> <span class="token class-name">String</span> p<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">int</span> n <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> m <span class="token operator">=</span> p<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">if</span><span class="token punctuation">(</span>m <span class="token operator">></span> n<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">&#125;</span>
-        <span class="token keyword">int</span> resultSum <span class="token operator">=</span> sum <span class="token punctuation">;</span>
-        <span class="token comment">//得到前k个数的总和</span>
+
+        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> result <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> sub <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token number">26</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> all <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token number">26</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> m<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            sub<span class="token punctuation">[</span>p<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token char">'a'</span><span class="token punctuation">]</span><span class="token operator">++</span><span class="token punctuation">;</span>
+            all<span class="token punctuation">[</span>s<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token char">'a'</span><span class="token punctuation">]</span><span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
         
-        <span class="token comment">//然后依次向后循环.</span>
-
-        <span class="token keyword">int</span> length <span class="token operator">=</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
-        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> k<span class="token punctuation">;</span> i<span class="token operator">&lt;</span> length<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-            sum <span class="token operator">=</span> sum <span class="token operator">-</span> nums<span class="token punctuation">[</span>i<span class="token operator">-</span>k<span class="token punctuation">]</span> <span class="token operator">+</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
-            resultSum <span class="token operator">=</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>sum<span class="token punctuation">,</span>resultSum<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>sub<span class="token punctuation">,</span>all<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            result<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">&#125;</span>
 
-        <span class="token keyword">return</span> <span class="token number">1.0</span> <span class="token operator">*</span> resultSum <span class="token operator">/</span> k<span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> m <span class="token punctuation">;</span> i<span class="token operator">&lt;</span>n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            all<span class="token punctuation">[</span>s<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token char">'a'</span><span class="token punctuation">]</span><span class="token operator">++</span><span class="token punctuation">;</span>
+            all<span class="token punctuation">[</span>s<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>i<span class="token operator">-</span>m<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token char">'a'</span><span class="token punctuation">]</span><span class="token operator">--</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>sub<span class="token punctuation">,</span>all<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+                result<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>i<span class="token operator">-</span>m<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+
     <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
@@ -487,7 +504,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://fengtingxin.github.io/2024/07/29/algorithm/zi-shu-zu-zui-da-ping-jun-shu-i/">http://fengtingxin.github.io/2024/07/29/algorithm/zi-shu-zu-zui-da-ping-jun-shu-i/</a>
+                    <a href="http://fengtingxin.github.io/2024/08/15/algorithm/zhao-dao-zi-fu-chuan-zhong-suo-you-zi-mu-yi-wei-ci/">http://fengtingxin.github.io/2024/08/15/algorithm/zhao-dao-zi-fu-chuan-zhong-suo-you-zi-mu-yi-wei-ci/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -575,17 +592,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2024/07/29/algorithm/da-xiao-wei-k-qie-ping-jun-zhi-da-yu-deng-yu-yu-zhi-de-zi-shu-zu-shu-mu/">
+                <a href="/2024/08/15/algorithm/zhao-dao-zi-fu-chuan-zhong-suo-you-zi-mu-yi-wei-ci/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="1343.大小为K且平均值大于等于阈值的子数组数目">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="438.找到字符串中所有字母异位词">
                         
-                        <span class="card-title">1343.大小为K且平均值大于等于阈值的子数组数目</span>
+                        <span class="card-title">438.找到字符串中所有字母异位词</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -595,9 +613,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2024-07-29
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-08-15
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -610,6 +628,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -632,13 +651,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2024/07/29/algorithm/xue-sheng-fen-shu-de-zui-xiao-chai-zhi/">
+                <a href="/2024/08/14/algorithm/zi-fu-chuan-de-pai-lie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="1984. 学生分数的最小差值">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="字符串的排列">
                         
-                        <span class="card-title">1984. 学生分数的最小差值</span>
+                        <span class="card-title">字符串的排列</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -649,7 +668,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-07-29
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-08-14
                             </span>
                         <span class="publish-author">
                             
