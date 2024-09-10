@@ -7,7 +7,7 @@ tags:
   - MqSQL实战45讲
 ---
 
-![1](img/mysql45/1.png)
+![1](1.png)
 
 MySQL分为Server层和存储引擎层。
 
