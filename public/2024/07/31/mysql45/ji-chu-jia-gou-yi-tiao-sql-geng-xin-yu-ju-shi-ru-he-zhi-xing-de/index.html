@@ -382,14 +382,14 @@ mysql&amp;gt; update T set ">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-09-11
+                    2024-09-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    45
+                    192
                 </div>
                 
 
@@ -426,6 +426,19 @@ mysql&amp;gt; update T set ">
 -- 当在id &#x3D; 2这一行操作update时
 mysql&gt; update T set c&#x3D;c+1 where ID&#x3D;2;
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>具体的执行过程涉及到两个日志：redolog（重做日志）和 binlog（归档日志）</p>
+<h2 id="redolog"><a href="#redolog" class="headerlink" title="redolog"></a>redolog</h2><p>Mysql最主要的就是先写日志，再写磁盘.</p>
+<p>简介：Innodb中的日志模块，存储的是物理地址，且redolog日志的大小是固定的。日志从头开始写，写到末尾又到开头循环写。</p>
+<p><img src="/2024/07/31/mysql45/ji-chu-jia-gou-yi-tiao-sql-geng-xin-yu-ju-shi-ru-he-zhi-xing-de/20240912233620944.png" alt="2"></p>
+<blockquote>
+<p>绿色部分为可写入部分</p>
+</blockquote>
+<p>write_pos 是当前写的位置</p>
+<p>checkpoint 是当前要擦除的位置，也是往后推移并且循环的，擦除记录前要把记录更新到数据文件。</p>
+<h2 id="binlog"><a href="#binlog" class="headerlink" title="binlog"></a>binlog</h2><p>binlog是Server层的日志.</p>
 
                 
             </div>
@@ -775,7 +788,7 @@ mysql&gt; update T set c&#x3D;c+1 where ID&#x3D;2;
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">36.1k</span>
+                        class="white-color">38.4k</span>
             
             
             
