@@ -162,7 +162,7 @@ indexbtn:
 # 首页 banner 中的第二行个人信息配置，留空即不启用
 socialLink:
   github:  https://github.com/fengtingxin/fengtingxin.github.io
-  email: #1181062873@qq.com
+  email: 1552068029@qq.com
   facebook: # https://www.facebook.com/xxx
   twitter: # https://twitter.com/xxx
   qq: #1181062873
@@ -257,8 +257,8 @@ snowdown:
 # 在”关于”页面中配置个人信息，包括头像、职业和个人介绍.
 profile:
   avatar: /medias/avatar.jpg
-  career: Software Engineer
-  introduction: If you wish to succeed, you should use persistence as your good friend, experience as your reference, prudence as your brother and hope as your sentry.
+  career: 冯廷鑫
+  introduction: 一个普通人，纵使前路偶尔会有荆棘，努力过的日子终会开满繁花。
 
 # config my projects informations in about page.
 # If you don't want to display this `My Projects` content, you can deactivate or delete this configuration.
@@ -633,8 +633,7 @@ subtitle:
   typeSpeed: 100 # 打字速度
   backSpeed: 50 # 删除速度
   sub:
-    - 从来没有真正的绝境, 只有心灵的迷途
-    - Never really desperate, only the lost of the soul
+    - 纵使前路偶尔会有荆棘，努力过的日子终会开满繁花
 
 # 手机二级菜单.
 navMenu:

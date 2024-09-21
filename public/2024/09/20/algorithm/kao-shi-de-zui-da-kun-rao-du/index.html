@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="2024.考试的最大困扰度, 冯廷鑫的日志">
-    <meta name="description" content="一位老师正在出一场由 n 道判断题构成的考试，每道题的答案为 true （用 &amp;#39;T&amp;#39; 表示）或者 false （用 &amp;#39;F&amp;#39; 表示）。老师想增加学生对自己做出答案的不确定性，方法是 最大化 有 连续相同 结果的">
+    <meta name="description" content="一位老师正在出一场由 n 道判断题构成的考试，每道题的答案为 true （用 &#39;T&#39; 表示）或者 false （用 &#39;F&#39; 表示）。老师想增加学生对自己做出答案的不确定性，方法是 最大化 有 连续相同 结果的题数。（也就是连续出现 true">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -32,7 +32,9 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.2.0"></head>
+<meta name="generator" content="Hexo 6.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
 
 
 <body>
@@ -381,14 +383,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-09-20
+                    2024-09-21
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    586
+                    495
                 </div>
                 
 
@@ -418,75 +420,75 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>一位老师正在出一场由 <code>n</code> 道判断题构成的考试，每道题的答案为 true （用 <code>&#39;T&#39;</code> 表示）或者 false （用 <code>&#39;F&#39;</code> 表示）。老师想增加学生对自己做出答案的不确定性，方法是 <strong>最大化</strong> 有 <strong>连续相同</strong> 结果的题数。（也就是连续出现 true 或者连续出现 false）。</p>
+                <p>一位老师正在出一场由 <code>n</code> 道判断题构成的考试，每道题的答案为 true （用 <code>'T'</code> 表示）或者 false （用 <code>'F'</code> 表示）。老师想增加学生对自己做出答案的不确定性，方法是 <strong>最大化</strong> 有 <strong>连续相同</strong> 结果的题数。（也就是连续出现 true 或者连续出现 false）。</p>
 <p>给你一个字符串 <code>answerKey</code> ，其中 <code>answerKey[i]</code> 是第 <code>i</code> 个问题的正确结果。除此以外，还给你一个整数 <code>k</code> ，表示你能进行以下操作的最多次数：</p>
 <ul>
-<li>每次操作中，将问题的正确答案改为 <code>&#39;T&#39;</code> 或者 <code>&#39;F&#39;</code> （也就是将 <code>answerKey[i]</code> 改为 <code>&#39;T&#39;</code> 或者 <code>&#39;F&#39;</code> ）。</li>
+<li>每次操作中，将问题的正确答案改为 <code>'T'</code> 或者 <code>'F'</code> （也就是将 <code>answerKey[i]</code> 改为 <code>'T'</code> 或者 <code>'F'</code> ）。</li>
 </ul>
-<p>请你返回在不超过 <code>k</code> 次操作的情况下，<strong>最大</strong> 连续 <code>&#39;T&#39;</code> 或者 <code>&#39;F&#39;</code> 的数目。</p>
+<p>请你返回在不超过 <code>k</code> 次操作的情况下，<strong>最大</strong> 连续 <code>'T'</code> 或者 <code>'F'</code> 的数目。</p>
 <p><strong>示例 1：</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">输入：answerKey &#x3D; &quot;TTFF&quot;, k &#x3D; 2
+<pre class="line-numbers language-none"><code class="language-none">输入：answerKey = "TTFF", k = 2
 输出：4
-解释：我们可以将两个 &#39;F&#39; 都变为 &#39;T&#39; ，得到 answerKey &#x3D; &quot;TTTT&quot; 。
-总共有四个连续的 &#39;T&#39; 。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+解释：我们可以将两个 'F' 都变为 'T' ，得到 answerKey = "TTTT" 。
+总共有四个连续的 'T' 。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>示例 2：</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">输入：answerKey &#x3D; &quot;TFFT&quot;, k &#x3D; 1
+<pre class="line-numbers language-none"><code class="language-none">输入：answerKey = "TFFT", k = 1
 输出：3
-解释：我们可以将最前面的 &#39;T&#39; 换成 &#39;F&#39; ，得到 answerKey &#x3D; &quot;FFFT&quot; 。
-或者，我们可以将第二个 &#39;T&#39; 换成 &#39;F&#39; ，得到 answerKey &#x3D; &quot;TFFF&quot; 。
-两种情况下，都有三个连续的 &#39;F&#39; 。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+解释：我们可以将最前面的 'T' 换成 'F' ，得到 answerKey = "FFFT" 。
+或者，我们可以将第二个 'T' 换成 'F' ，得到 answerKey = "TFFF" 。
+两种情况下，都有三个连续的 'F' 。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>示例 3：</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">输入：answerKey &#x3D; &quot;TTFTTFTT&quot;, k &#x3D; 1
+<pre class="line-numbers language-none"><code class="language-none">输入：answerKey = "TTFTTFTT", k = 1
 输出：5
-解释：我们可以将第一个 &#39;F&#39; 换成 &#39;T&#39; ，得到 answerKey &#x3D; &quot;TTTTTFTT&quot; 。
-或者我们可以将第二个 &#39;F&#39; 换成 &#39;T&#39; ，得到 answerKey &#x3D; &quot;TTFTTTTT&quot; 。
-两种情况下，都有五个连续的 &#39;T&#39; 。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+解释：我们可以将第一个 'F' 换成 'T' ，得到 answerKey = "TTTTTFTT" 。
+或者我们可以将第二个 'F' 换成 'T' ，得到 answerKey = "TTFTTTTT" 。
+两种情况下，都有五个连续的 'T' 。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>提示：</strong></p>
 <ul>
 <li><code>n == answerKey.length</code></li>
 <li><code>1 &lt;= n &lt;= 5 * 10^4</code></li>
-<li><code>answerKey[i]</code> 要么是 <code>&#39;T&#39;</code> ，要么是 <code>&#39;F&#39;</code></li>
+<li><code>answerKey[i]</code> 要么是 <code>'T'</code> ，要么是 <code>'F'</code></li>
 <li><code>1 &lt;= k &lt;= n</code></li>
 </ul>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">maxConsecutiveAnswers</span><span class="token punctuation">(</span><span class="token class-name">String</span> answerKey<span class="token punctuation">,</span> <span class="token keyword">int</span> k<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">maxConsecutiveAnswers</span><span class="token punctuation">(</span><span class="token class-name">String</span> answerKey<span class="token punctuation">,</span> <span class="token keyword">int</span> k<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token comment">//使用双指针.</span>
         <span class="token keyword">int</span> result <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
         <span class="token comment">// t 在 0；f在 1</span>
         <span class="token keyword">int</span> temp<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
         <span class="token keyword">int</span> l <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> r <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> r <span class="token operator">&lt;</span> answerKey<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">;</span> r<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token char">'T'</span> <span class="token operator">==</span> answerKey<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> r <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> r <span class="token operator">&lt;</span> answerKey<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">;</span> r<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token char">'T'</span> <span class="token operator">==</span> answerKey<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
                 temp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">++</span><span class="token punctuation">;</span>
-            <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
                 temp<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">++</span><span class="token punctuation">;</span>
-            <span class="token punctuation">&#125;</span>
+            <span class="token punctuation">}</span>
             <span class="token comment">//判断是否有大于2的.</span>
-            <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token function">isOver2</span><span class="token punctuation">(</span>temp<span class="token punctuation">,</span>k<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-                <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token char">'T'</span> <span class="token operator">==</span> answerKey<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>l<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token function">isOver2</span><span class="token punctuation">(</span>temp<span class="token punctuation">,</span>k<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token char">'T'</span> <span class="token operator">==</span> answerKey<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>l<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
                     temp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">--</span><span class="token punctuation">;</span>
-                <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+                <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
                     temp<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">--</span><span class="token punctuation">;</span>
-                <span class="token punctuation">&#125;</span>
+                <span class="token punctuation">}</span>
                 l<span class="token operator">++</span><span class="token punctuation">;</span>
-            <span class="token punctuation">&#125;</span>
+            <span class="token punctuation">}</span>
             result <span class="token operator">=</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>r <span class="token operator">-</span> l <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">}</span>
         <span class="token keyword">return</span> result<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">}</span>
 
     <span class="token comment">//判断长度</span>
-    <span class="token keyword">private</span> <span class="token keyword">boolean</span> <span class="token function">isOver2</span><span class="token punctuation">(</span><span class="token keyword">int</span> temp<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token keyword">int</span> k<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>temp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">></span> k <span class="token operator">&amp;&amp;</span> temp<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">></span> k<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">private</span> <span class="token keyword">boolean</span> <span class="token function">isOver2</span><span class="token punctuation">(</span><span class="token keyword">int</span> temp<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token keyword">int</span> k<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>temp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">&gt;</span> k <span class="token operator">&amp;&amp;</span> temp<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">&gt;</span> k<span class="token punctuation">)</span><span class="token punctuation">{</span>
             <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">}</span>
         <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
@@ -841,7 +843,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">38.4k</span>
+                        class="white-color">36.6k</span>
             
             
             
@@ -872,6 +874,10 @@
     </a>
 
 
+
+    <a href="mailto:1552068029@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
 
 
 
@@ -1068,6 +1074,6 @@ $(function () {
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
 
 </html>

@@ -5,12 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="基础架构：一条SQL更新语句是如何执行的, 冯廷鑫的日志">
-    <meta name="description" content="
-还是看这个图，举例说明：
-mysql&amp;gt; create table T(ID int primary key, c int);
-
--- 当在id &amp;#x3D; 2这一行操作update时
-mysql&amp;gt; update T set ">
+    <meta name="description" content="主要包含binlog、redolog内容">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -37,7 +32,9 @@ mysql&amp;gt; update T set ">
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.2.0"></head>
+<meta name="generator" content="Hexo 6.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
 
 
 <body>
@@ -229,7 +226,7 @@ mysql&amp;gt; update T set ">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/2024/07/31/mysql45/ji-chu-jia-gou-yi-tiao-sql-geng-xin-yu-ju-shi-ru-he-zhi-xing-de/cover.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -382,14 +379,14 @@ mysql&amp;gt; update T set ">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-09-20
+                    2024-09-21
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    192
+                    381
                 </div>
                 
 
@@ -421,15 +418,13 @@ mysql&amp;gt; update T set ">
             <div id="articleContent">
                 <p><img src="/2024/07/31/mysql45/ji-chu-jia-gou-yi-tiao-sql-geng-xin-yu-ju-shi-ru-he-zhi-xing-de/1.png" alt="1"></p>
 <p>还是看这个图，举例说明：</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">mysql&gt; create table T(ID int primary key, c int);
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">mysql<span class="token operator">&gt;</span> <span class="token keyword">create</span> <span class="token keyword">table</span> T<span class="token punctuation">(</span>ID <span class="token keyword">int</span> <span class="token keyword">primary</span> <span class="token keyword">key</span><span class="token punctuation">,</span> c <span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
--- 当在id &#x3D; 2这一行操作update时
-mysql&gt; update T set c&#x3D;c+1 where ID&#x3D;2;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-
+<span class="token comment">-- 当在id = 2这一行操作update时</span>
+mysql<span class="token operator">&gt;</span> <span class="token keyword">update</span> T <span class="token keyword">set</span> c<span class="token operator">=</span>c<span class="token operator">+</span><span class="token number">1</span> <span class="token keyword">where</span> ID<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>具体的执行过程涉及到两个日志：redolog（重做日志）和 binlog（归档日志）</p>
+<p>redolog的写入包含了两个步骤：prepare和commit，这就是两阶段提交.</p>
 <h2 id="redolog"><a href="#redolog" class="headerlink" title="redolog"></a>redolog</h2><p>Mysql最主要的就是先写日志，再写磁盘.</p>
 <p>简介：Innodb中的日志模块，存储的是物理地址，且redolog日志的大小是固定的。日志从头开始写，写到末尾又到开头循环写。</p>
 <p><img src="/2024/07/31/mysql45/ji-chu-jia-gou-yi-tiao-sql-geng-xin-yu-ju-shi-ru-he-zhi-xing-de/20240912233620944.png" alt="2"></p>
@@ -438,7 +433,16 @@ mysql&gt; update T set c&#x3D;c+1 where ID&#x3D;2;
 </blockquote>
 <p>write_pos 是当前写的位置</p>
 <p>checkpoint 是当前要擦除的位置，也是往后推移并且循环的，擦除记录前要把记录更新到数据文件。</p>
-<h2 id="binlog"><a href="#binlog" class="headerlink" title="binlog"></a>binlog</h2><p>binlog是Server层的日志.</p>
+<h2 id="binlog"><a href="#binlog" class="headerlink" title="binlog"></a>binlog</h2><p>两个日志的区别：</p>
+<ul>
+<li>redolog是InnoDB引擎特有的，binlog是Server层的日志.</li>
+<li>redolog是物理日志，记录的是“在数据页上做了什么修改”；binlog是逻辑日志记录的是这个语句的原始逻辑.binlog有两种格式：一种记录的是sql语句，一种记录是改变前的数据和改变后的数据.</li>
+<li>redolog是循环写的，空间固定；binlog是追加写的，binlog文件写到一定大小之后会切换到下一个，并不会覆盖之前的日志.</li>
+</ul>
+<p>场景举例：</p>
+<ul>
+<li>Binlog如果已经写入，那么redolog是prepare, binlog已经完整了，这时候崩溃恢复过程会认可这个事务，提交。</li>
+</ul>
 
                 
             </div>
@@ -788,7 +792,7 @@ mysql&gt; update T set c&#x3D;c+1 where ID&#x3D;2;
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">38.4k</span>
+                        class="white-color">36.6k</span>
             
             
             
@@ -819,6 +823,10 @@ mysql&gt; update T set c&#x3D;c+1 where ID&#x3D;2;
     </a>
 
 
+
+    <a href="mailto:1552068029@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
 
 
 
@@ -1015,6 +1023,6 @@ $(function () {
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
 
 </html>

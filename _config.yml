@@ -4,7 +4,7 @@
 
 # Site
 title: 冯廷鑫的日志
-subtitle: ''
+subtitle: '冯廷鑫的日志'
 description: '冯廷鑫的日志'
 keywords:
 author: 冯廷鑫
@@ -123,3 +123,32 @@ permalink_pinyin:
 search:
   path: search.xml
   field: post
+
+# 新增了对emoji表情的支持，使用到了 hexo-filter-github-emojis 的 Hexo 插件来支持 emoji表情的生成，把对应的markdown emoji语法（::,例如：:smile:）转变成会跳跃的emoji表情
+githubEmojis:
+  enable: true
+  className: github-emoji
+  inject: true
+  styles:
+  customEmojis:
+
+# 出现猫的插件
+# https://github.com/EYHN/hexo-helper-live2d/blob/master/README.zh-CN.md
+live2d:
+  enable: true
+  scriptFrom: local
+  pluginRootPath: live2dw/
+  pluginJsPath: lib/
+  pluginModelPath: assets/
+  tagMode: false
+  debug: false
+  model:
+    use: live2d-widget-model-hijiki
+  display:
+    position: left
+    width: 150
+    height: 300
+  mobile:
+    show: true
+  react:
+    opacity: 0.7

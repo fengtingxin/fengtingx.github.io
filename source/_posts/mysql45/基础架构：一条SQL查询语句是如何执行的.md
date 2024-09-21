@@ -5,6 +5,9 @@ categories:
   - Mysql
 tags:
   - MqSQL实战45讲
+img: /2024/07/15/mysql45/ji-chu-jia-gou-yi-tiao-sql-cha-xun-yu-ju-shi-ru-he-zhi-xing-de/cover.jpg
+cover: true
+summary: 介绍mysql架构
 ---
 
 ![1](1.png)
