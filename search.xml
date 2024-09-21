@@ -4,6 +4,60 @@
   
     
     <entry>
+      <title>1658.将x减到0的最小操作数</title>
+      <link href="/2024/09/21/algorithm/jiang-x-jian-dao-0-de-zui-xiao-cao-zuo-shu/"/>
+      <url>/2024/09/21/algorithm/jiang-x-jian-dao-0-de-zui-xiao-cao-zuo-shu/</url>
+      
+        <content type="html"><![CDATA[<p>给你一个整数数组 <code>nums</code> 和一个整数 <code>x</code> 。每一次操作时，你应当移除数组 <code>nums</code> 最左边或最右边的元素，然后从 <code>x</code> 中减去该元素的值。请注意，需要 <strong>修改</strong> 数组以供接下来的操作使用。</p><p>如果可以将 <code>x</code> <strong>恰好</strong> 减到 <code>0</code> ，返回 <strong>最小操作数</strong> ；否则，返回 <code>-1</code> 。</p><p><strong>示例 1：</strong></p><pre class="line-numbers language-none"><code class="language-none">输入：nums = [1,1,4,2,3], x = 5输出：2解释：最佳解决方案是移除后两个元素，将 x 减到 0 。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p><strong>示例 2：</strong></p><pre class="line-numbers language-none"><code class="language-none">输入：nums = [5,6,7,8,9], x = 4输出：-1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p><strong>示例 3：</strong></p><pre class="line-numbers language-none"><code class="language-none">输入：nums = [3,2,20,1,1,3], x = 10输出：5解释：最佳解决方案是移除后三个元素和前两个元素（总共 5 次操作），将 x 减到 0 。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p><strong>提示：</strong></p><ul><li><code>1 &lt;= nums.length &lt;= 10^5</code></li><li><code>1 &lt;= nums[i] &lt;= 10^4</code></li><li><code>1 &lt;= x &lt;= 10^9</code></li></ul><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">minOperations</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> x<span class="token punctuation">)</span> <span class="token punctuation">{</span>        <span class="token comment">//当你发现从正面求解很困难的时候，不妨取反试试.</span>        <span class="token comment">//这里的取反指的是：取数组总和的反值.</span>        <span class="token keyword">int</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">:</span> nums<span class="token punctuation">)</span><span class="token punctuation">{</span>            sum<span class="token operator">+=</span> i<span class="token punctuation">;</span>        <span class="token punctuation">}</span>         <span class="token keyword">int</span> target <span class="token operator">=</span> sum <span class="token operator">-</span> x<span class="token punctuation">;</span> <span class="token comment">//取反之后的和.</span>        <span class="token keyword">if</span><span class="token punctuation">(</span>target <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>            <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>        <span class="token punctuation">}</span>        <span class="token comment">//当取反之后，那么题目也就变成，和为 target 长度最长的子数组长度.</span>        <span class="token keyword">int</span> temp <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>        <span class="token keyword">int</span> l <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>        <span class="token keyword">int</span> result <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> r <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> r <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span> r<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>            temp<span class="token operator">+=</span> nums<span class="token punctuation">[</span>r<span class="token punctuation">]</span><span class="token punctuation">;</span>            <span class="token keyword">while</span><span class="token punctuation">(</span>temp <span class="token operator">&gt;</span> target <span class="token operator">&amp;&amp;</span> l <span class="token operator">&lt;=</span> r<span class="token punctuation">)</span><span class="token punctuation">{</span>                temp<span class="token operator">-=</span> nums<span class="token punctuation">[</span>l<span class="token punctuation">]</span><span class="token punctuation">;</span>                l<span class="token operator">++</span><span class="token punctuation">;</span>            <span class="token punctuation">}</span>            <span class="token comment">//只有当sum和跟目标值相同时，才计算总长度.</span>            <span class="token keyword">if</span><span class="token punctuation">(</span>temp <span class="token operator">==</span> target<span class="token punctuation">)</span><span class="token punctuation">{</span>                result <span class="token operator">=</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>result<span class="token punctuation">,</span>r<span class="token operator">-</span>l<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>            <span class="token punctuation">}</span>        <span class="token punctuation">}</span>                <span class="token keyword">return</span> result <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token operator">?</span> result <span class="token operator">:</span> nums<span class="token punctuation">.</span>length <span class="token operator">-</span> result<span class="token punctuation">;</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+            <tag> 不定长滑动窗口专题 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>基础篇</title>
+      <link href="/2024/09/21/mysql45/ji-chu-pian/"/>
+      <url>/2024/09/21/mysql45/ji-chu-pian/</url>
+      
+        <content type="html"><![CDATA[<h1 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h1><p>MyISAM不支持事务；InnoDB支持事务.</p><p>介绍一下事务的AICD特性：（Atomicity、Consistency、Isolation、Durability）</p><p>A（Atomicity）：原子性，就是说在一个事务内是一个不可分割的操作单元，要么全部执行成功，要么全部失败回滚。这保证了数据的一致性和完整性。</p><p>C（Consistency）：一致性，事务执行前后，数据库的状态必须保持一致。事务的操作应满足预定义的约束和规则，不会破坏数据的完整性。在分布式系统中，可以理解为多个节点中数据的值是一致的。</p><p>I（Isolation）：隔离性，并发执行的事务之间要相互隔离，互不干扰。每个事务都应该感觉不到其他事务的存在，避免数据冲突和干扰。</p><p>D（Durability）：持久性，一旦事务提交成功，对数据库的修改就是永久性的，即使系统发生故障或重启，修改的数据也能恢复。</p><h2 id="隔离性"><a href="#隔离性" class="headerlink" title="隔离性"></a>隔离性</h2><p>事务的隔离级别：</p><table><thead><tr><th>隔离级别</th><th>介绍</th></tr></thead><tbody><tr><td>读未提交（read uncommitted）</td><td>一个事务还没提交时，它做的变更就能被别的事务看到。</td></tr><tr><td>读提交（read committed）</td><td>一个事务提交之后，它做的变更才会被其他事务看到。</td></tr><tr><td>可重复读（repeatable read）</td><td>Innodb的默认隔离级别<br>一个事务执行过程中看到的数据，总是跟这个事务在启动时看到的数据是一致的。当然在可重复读隔离级别下，未提交变更对其他事务也是不可见的。</td></tr><tr><td>串行化（serializable ）</td><td>顾名思义是对于同一行记录，“写”会加“写锁”，“读”会加“读锁”。当出现读写锁冲突的时候，后访问的事务必须等前一个事务执行完成，才能继续执行。</td></tr></tbody></table><p>举例：</p><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">mysql<span class="token operator">&gt;</span> <span class="token keyword">create</span> <span class="token keyword">table</span> T<span class="token punctuation">(</span>c <span class="token keyword">int</span><span class="token punctuation">)</span> <span class="token keyword">engine</span><span class="token operator">=</span><span class="token keyword">InnoDB</span><span class="token punctuation">;</span><span class="token keyword">insert</span> <span class="token keyword">into</span> T<span class="token punctuation">(</span>c<span class="token punctuation">)</span> <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p><img src="/%E5%9F%BA%E7%A1%80%E7%AF%87/1.png" alt="1"></p><table><thead><tr><th>隔离级别</th><th>V1、V2、V3的结果</th></tr></thead><tbody><tr><td>读未提交（read uncommitted）</td><td>V1=2；V2=2；V3=2</td></tr><tr><td>读提交（read committed）</td><td>V1=1；V2=2；V3=2</td></tr><tr><td>可重复读（repeatable read）</td><td>V1=1；V2=1；V3=2</td></tr><tr><td>串行化（serializable ）</td><td>V1=1；V2=1；V3=2</td></tr></tbody></table><p>隔离级别为可重复读的实现方式：多版本并发控制-MVCC</p><blockquote><p>InnoDB通过为每一行记录添加两个额外的隐藏的值来实现MVCC，这两个值一个记录这行数据何时被创建，另外一个记录这行数据何时过期（或者被删除）。但是InnoDB并不存储这些事件发生时的实际时间，相反它只存储这些事件发生时的系统版本号（LSN）。这是一个随着事务的创建而不断增长的数字。每个事务在事务开始时会记录它自己的系统版本号。每个查询必须去检查每行数据的版本号与事务的版本号是否相同。</p></blockquote><h1 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h1><p>索引的常见模型</p><table><thead><tr><th>模型</th><th>简介</th></tr></thead><tbody><tr><td>哈希表</td><td>以键 - 值（key-value）存储数据的结构；不可避免地，多个 key 值经过哈希函数的换算，会出现同一个值的情况。处理这种情况的一种方法是，拉出一个链表。</td></tr><tr><td>有序数组</td><td></td></tr><tr><td>二叉搜索树</td><td></td></tr></tbody></table>]]></content>
+      
+      
+      <categories>
+          
+          <category> Mysql </category>
+          
+          <category> 待完成 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> MqSQL实战45讲 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>1004.最大连续1的个数III</title>
       <link href="/2024/09/20/algorithm/zui-da-lian-xu-1-de-ge-shu-iii/"/>
       <url>/2024/09/20/algorithm/zui-da-lian-xu-1-de-ge-shu-iii/</url>
