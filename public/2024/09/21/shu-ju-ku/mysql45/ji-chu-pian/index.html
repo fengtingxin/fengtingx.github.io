@@ -226,7 +226,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/2024/09/21/shu-ju-ku/mysql45/ji-chu-pian/cover.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -383,21 +383,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-09-26
+                    2024-10-05
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    811
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    4 分
                 </div>
                 
 
@@ -498,13 +498,21 @@
 </tr>
 <tr>
 <td>有序数组</td>
-<td></td>
+<td>有序数组在等值查询和范围查询场景中的性能就都非常优秀，只适用于静态存储引擎.</td>
 </tr>
 <tr>
 <td>搜索树</td>
-<td></td>
+<td>二叉搜索树的特点是：每个节点的左儿子小于父节点，父节点又小于右儿子。这样如果你要查 ID_card_n2 的话，按照图中的搜索顺序就是按照 UserA -&gt; UserC -&gt; UserF -&gt; User2 这个路径得到。这个时间复杂度是 O(log(N))。树可以有二叉，也可以有多叉。多叉树就是每个节点有多个儿子，儿子之间的大小保证从左到右递增。已InnoDB的一个整数字段索引为例，这个N差不多是1200，这棵树高是4的时候，就可以存1200的3次方个值，这已经是17亿了。</td>
 </tr>
 </tbody></table>
+<p><strong>InnoDB的索引使用B+树</strong></p>
+<p>根据叶子节点的内容，索引类型分为主键索引和非主键索引。</p>
+<p><strong>主键索引（聚簇索引）</strong>：叶子节点存的是整行数据</p>
+<p><strong>非主键索引（二级索引）</strong>：叶子节点存储的是主键的值。所以当使用二级索引时，可能会有回表动作.</p>
+<h2 id="索引维护"><a href="#索引维护" class="headerlink" title="索引维护"></a>索引维护</h2><p>插入新值：如果插入的值所在的数据页已经满了，则会新申请一个数据页，将部分数据挪过去。这个过程称之为页分裂。</p>
+<p>有分裂就会有合并。在删除数据的时候。</p>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>Q：“N叉树”的N值在MySQL中是可以被人工调整的么?</p>
+<p>A：在MySQL中，N值在B-tree实现中是固定的，不能由用户手动调整。用户只能在创建索引时指定索引的类型和索引的列，而不能直接指定B-tree的N值。</p>
 
                 
             </div>
@@ -854,7 +862,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">39.9k</span>
+                        class="white-color">41.1k</span>
             
             
             

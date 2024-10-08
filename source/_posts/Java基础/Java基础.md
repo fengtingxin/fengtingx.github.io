@@ -1,18 +1,19 @@
 ---
-title: JVM基础
+title: Java基础
 date: 2023-03-28 09:40:14
 tags:
   - JVM
   - java
   - 集合
+img: /2023/03/28/java-ji-chu/java-ji-chu/java-ji-chu/cover.jpg
+cover: true
+summary: 介绍mysql架构
 ---
 
-Java基础问题
+# JVM
 
 
-
-
-![[/img/Pasted image 20230328094117.png]]先了解个背景：
+![1](/2023/03/28/java-ji-chu/java-ji-chu/java-ji-chu/1.png)先了解个背景：
 
 jdk6：常量池在方法区中，方法区在堆中
 
@@ -26,7 +27,7 @@ String类型的常量池比较特殊。它的主要使用方法有两种：
 -   **如果不是用双引号声明的String对象，可以使用String提供的intern方法。intern 方法会从字符串常量池中查询当前字符串是否存在，若不存在就会将当前字符串放入常量池中**
 
 栈：
-  ![[/img/Pasted image 20230328203228.png]]
+ ![1](/2023/03/28/java-ji-chu/java-ji-chu/java-ji-chu/2.png)
 
 场景1：代码执行环境>=jdk7
 
@@ -86,7 +87,7 @@ public static void jdk6() {
 ```
 
   
-  
+
 
 Java堆：是线程共享的一块区域，此区域的唯一目的是为了存储对象实例，几乎所有的对象实例都在这里创建（有例外：栈上分配，TLAB）
 
@@ -117,17 +118,17 @@ Java堆：是线程共享的一块区域，此区域的唯一目的是为了存�
 	TLAB的出现的目的是避免堆上直接分配内存从而避免频繁的锁竞争。
 	在检查如果开启了TLAB时，如果开启了，那么判断此线程剩余的TLAB大小时候满足于分配此对象，如果不满足，再判断TLAB的剩余空间是否小于最大浪费空间限制（动态值），如果是，则从Eden区中重新申请一个TLAB空间；否则直接在TLAB外分配。发生GC时，TLAB会被回收。
 	-XX:UseTLAB 开启TLAB 默认开启
-	![[/img/Pasted image 20230328102127.png]]
+	![1](/2023/03/28/java-ji-chu/java-ji-chu/java-ji-chu/3.png)
 	
 	TLAB有什么缺点，怎么解决？
 	TLAB引入后，由于存在TLAB停止的场景，也就是在TLAB的剩余空间小于最大浪费空间限制值下，需要重新申请一个TLAB，那么此时的剩余空间就是一个间隙。或者是GC时，还有TLAB的剩余空间。如果不管这些空间那么GC的时候这些空间就需要额外的检查，影响GC的扫描效率。
-所以如果是我们自己设计一个TLAB的空间，
-1）不能设置这个空间太大或者太小，太小会造成多频次的重新申请TLAB空间，太大会造成空间浪费；
-2）每次申请空间大小最好不要固定，而是动态的。
-3）由于TLAB是由线程创建的，所以需要关注当前gc轮次内的会分配对象的线程数量
-4）也需要关注每个线程会创建对象的数量及所需的空间，即申请TLAB次数。
-综上，实际是缺失一个历史期望值的概念。TLAB中经常使用的是EMA（指数平均数）算法
-新的期望大小 = 堆给TLAB的空间总大小 * 当前分配比例 EMA / 重填次数配置 
+	所以如果是我们自己设计一个TLAB的空间，
+	1）不能设置这个空间太大或者太小，太小会造成多频次的重新申请TLAB空间，太大会造成空间浪费；
+	2）每次申请空间大小最好不要固定，而是动态的。
+	3）由于TLAB是由线程创建的，所以需要关注当前gc轮次内的会分配对象的线程数量
+	4）也需要关注每个线程会创建对象的数量及所需的空间，即申请TLAB次数。
+	综上，实际是缺失一个历史期望值的概念。TLAB中经常使用的是EMA（指数平均数）算法
+	新的期望大小 = 堆给TLAB的空间总大小 * 当前分配比例 EMA / 重填次数配置 
 
 
 
@@ -183,7 +184,7 @@ JVM垃圾回收算法：
 
 独占与非独占式垃圾回收的区别：在垃圾回收的时候垃圾回收线程是否同应用线程并行执行。
 
-![[/img/Pasted image 20230328204702.png]]
+![1](/2023/03/28/java-ji-chu/java-ji-chu/java-ji-chu/4.png)
 
 新生代的垃圾收集器：Serial GC、Parallel Scavenge GC、ParNew GC
 老年代垃圾收集器：Serial Old GC、Parallel Old GC、CMS GC
@@ -263,3 +264,38 @@ Heap after GC invocations=2116 (full 0):
  [Times: user=0.20 sys=0.01, real=0.07 secs] 
 ```
 
+# Java并发
+
+## 并发基础
+
+### 硬件内存架构
+
+
+
+### OS的进程、线程
+
+### 安全性问题、加锁机制、活跃性问题及性能问题
+
+## JMM
+
+### Java内存模型 及 Java线程
+
+### 并发环境下的JMM存在的问题
+
+### 常用关键字语义：volatile，final，synchronized
+
+## JUC
+
+### Unsafe、LockSupport
+
+### AQS
+
+### 线程同步工具类
+
+### JUC的锁
+
+### JUC原子类
+
+### JUC下的线程安全容器
+
+### JUC线程池
