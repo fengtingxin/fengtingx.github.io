@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="Java基础, 冯廷鑫的日志">
-    <meta name="description" content="介绍mysql架构">
+    <meta name="description" content="Java基础">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -226,7 +226,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/2023/03/28/java-ji-chu/java-ji-chu/java-ji-chu/cover.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/2023/03/28/java-ji-chu/java-ji-chu/cover.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -378,7 +378,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-10-05
+                    2024-10-08
                 </div>
                 
 
@@ -415,8 +415,8 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h1><p><img src="/2023/03/28/java-ji-chu/java-ji-chu/java-ji-chu/1.png" alt="1">先了解个背景：</p>
-<p>jdk6：常量池在方法区中，方法区在堆中</p>
+                <h1 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h1><p><img src="/2023/03/28/java-ji-chu/java-ji-chu/1.png" alt="1">先了解个背景：</p>
+<p>sjdk6：常量池在方法区中，方法区在堆中</p>
 <p>jdk7：常量池在堆中，方法区在堆中</p>
 <p>jdk8：常量池在堆中，元空间（由jdk7的方法区改名而来）在堆外</p>
 <p>String类型的常量池比较特殊。它的主要使用方法有两种：</p>
@@ -424,7 +424,7 @@
 <li><strong>直接使用双引号声明出来的String对象会直接存储在常量池中。</strong></li>
 <li><strong>如果不是用双引号声明的String对象，可以使用String提供的intern方法。intern 方法会从字符串常量池中查询当前字符串是否存在，若不存在就会将当前字符串放入常量池中</strong></li>
 </ul>
-<p>栈：<br> <img src="/2023/03/28/java-ji-chu/java-ji-chu/java-ji-chu/2.png" alt="1"></p>
+<p>栈：<br><img src="/2023/03/28/java-ji-chu/java-ji-chu/2.png" alt="2"></p>
 <p>场景1：代码执行环境&gt;=jdk7</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token class-name">String</span> s <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">"1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//这行会创建两次对象，第一次为在常量池中初始化这个常量。第二个是在堆中初始化s的对象实体，同时指向常量池中的常量。</span>
@@ -480,7 +480,7 @@
 <li><p>判断对象是否有逃逸，如果对象没有逃逸，那么就没有必要分配在堆上；<br>需要通过jvm参数控制开启逃逸分析**(-XX: +DoEscapeAnalysis)<strong>；开启标量替换</strong>(-XX: +EliminateAllocaCons)**<br>分析对象的作用域，可能被其他方法引用到叫做方法逃逸；可能被其他线程使用叫做线程逃逸<br>即时编译器可以根据逃逸分析的结果进行诸如锁消除、栈上分配以及标量替换的优化。<br>先看一下锁消除：如果即时编译器能够判断锁对象不逃逸，那么对该对象的加锁、解锁操作都没有任何意义。<br>其次在看下什么是栈上分配：由于直接在栈上初始化对象，并通过弹出栈帧来自动回收对象空间，这样就无需借助堆内存的垃圾回收<br>不过HotSpot并没有采用栈上分配的方式，原因是有很多逻辑使用了”对象只能堆分配”，所以其使用了<strong>标量替换</strong>的技术，简单来说就是判断未逃逸的对象中有哪些属性使用，将这个对象替换为对象中的成员变量，直接在栈上初始化这些成员变量，这个同栈上分配一样，也无需借助堆内存的垃圾回收。</p>
 </li>
 <li><p>在判断完如果无需栈上分配之后，需要判断是否开启<strong>TLAB</strong>，如果开启，那么需要进行TLAB的判断。（[[<a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv10375688">https://www.bilibili.com/read/cv10375688</a> | TLAB全解 ]]）<br> TLAB是什么？是线程本地分配缓存区，是线程私有的，线程初始化的时候会创建TLAB。TLAB占据的是Eden区中的一块空间，通常占据1%，为线程划分独立的对象分配空间。</p>
-<p> 为什么要有TLAB？是怎么使用的？<br> TLAB的出现的目的是避免堆上直接分配内存从而避免频繁的锁竞争。<br> 在检查如果开启了TLAB时，如果开启了，那么判断此线程剩余的TLAB大小时候满足于分配此对象，如果不满足，再判断TLAB的剩余空间是否小于最大浪费空间限制（动态值），如果是，则从Eden区中重新申请一个TLAB空间；否则直接在TLAB外分配。发生GC时，TLAB会被回收。<br> -XX:UseTLAB 开启TLAB 默认开启<br> <img src="/2023/03/28/java-ji-chu/java-ji-chu/java-ji-chu/3.png" alt="1"></p>
+<p> 为什么要有TLAB？是怎么使用的？<br> TLAB的出现的目的是避免堆上直接分配内存从而避免频繁的锁竞争。<br> 在检查如果开启了TLAB时，如果开启了，那么判断此线程剩余的TLAB大小时候满足于分配此对象，如果不满足，再判断TLAB的剩余空间是否小于最大浪费空间限制（动态值），如果是，则从Eden区中重新申请一个TLAB空间；否则直接在TLAB外分配。发生GC时，TLAB会被回收。<br> -XX:UseTLAB 开启TLAB 默认开启<br> <img src="/2023/03/28/java-ji-chu/java-ji-chu/3.png" alt="3"></p>
 <p> TLAB有什么缺点，怎么解决？<br> TLAB引入后，由于存在TLAB停止的场景，也就是在TLAB的剩余空间小于最大浪费空间限制值下，需要重新申请一个TLAB，那么此时的剩余空间就是一个间隙。或者是GC时，还有TLAB的剩余空间。如果不管这些空间那么GC的时候这些空间就需要额外的检查，影响GC的扫描效率。<br> 所以如果是我们自己设计一个TLAB的空间，<br> 1）不能设置这个空间太大或者太小，太小会造成多频次的重新申请TLAB空间，太大会造成空间浪费；<br> 2）每次申请空间大小最好不要固定，而是动态的。<br> 3）由于TLAB是由线程创建的，所以需要关注当前gc轮次内的会分配对象的线程数量<br> 4）也需要关注每个线程会创建对象的数量及所需的空间，即申请TLAB次数。<br> 综上，实际是缺失一个历史期望值的概念。TLAB中经常使用的是EMA（指数平均数）算法<br> 新的期望大小 = 堆给TLAB的空间总大小 * 当前分配比例 EMA / 重填次数配置</p>
 </li>
 </ol>
@@ -498,7 +498,7 @@
 </ol>
 <p>并发与并行<br>并发：CPU不断地上下文切换，执行多个任务，每个时间点上只有一个任务在执行。<br>并行：在多核的场景下，每个核都执行，同时进行。</p>
 <p>独占与非独占式垃圾回收的区别：在垃圾回收的时候垃圾回收线程是否同应用线程并行执行。</p>
-<p><img src="/2023/03/28/java-ji-chu/java-ji-chu/java-ji-chu/4.png" alt="1"></p>
+<p><img src="/2023/03/28/java-ji-chu/java-ji-chu/4.png" alt="4"></p>
 <p>新生代的垃圾收集器：Serial GC、Parallel Scavenge GC、ParNew GC<br>老年代垃圾收集器：Serial Old GC、Parallel Old GC、CMS GC<br>整堆垃圾收集器：G1</p>
 <p>GC的两个难点：<br>1.对象漏标问题，这就涉及到3色标记法，用于区分哪些对象是要回收的，哪些对象是不要回收的。<br>白色：未被标记的对象<br>灰色：自身被标记，成员变量未被标记<br>黑色：自身和成员变量均已标记完成。</p>
 <p>漏标的解决方案：<br>CMS解决方案：增量更新，关注引用的增加，把黑色重新标记为灰色，下次重新扫描属性。<br>G1解决方案：关注引用的删除，当B-&gt;D消失，要把这个引用推到GC的堆栈，保证D还能被GC扫描到。</p>

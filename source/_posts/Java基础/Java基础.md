@@ -5,17 +5,17 @@ tags:
   - JVM
   - java
   - 集合
-img: /2023/03/28/java-ji-chu/java-ji-chu/java-ji-chu/cover.jpg
+img: /2023/03/28/java-ji-chu/java-ji-chu/cover.png
 cover: true
-summary: 介绍mysql架构
+summary: Java基础
 ---
 
 # JVM
 
 
-![1](/2023/03/28/java-ji-chu/java-ji-chu/java-ji-chu/1.png)先了解个背景：
+![1](/2023/03/28/java-ji-chu/java-ji-chu/1.png)先了解个背景：
 
-jdk6：常量池在方法区中，方法区在堆中
+sjdk6：常量池在方法区中，方法区在堆中
 
 jdk7：常量池在堆中，方法区在堆中
 
@@ -27,7 +27,7 @@ String类型的常量池比较特殊。它的主要使用方法有两种：
 -   **如果不是用双引号声明的String对象，可以使用String提供的intern方法。intern 方法会从字符串常量池中查询当前字符串是否存在，若不存在就会将当前字符串放入常量池中**
 
 栈：
- ![1](/2023/03/28/java-ji-chu/java-ji-chu/java-ji-chu/2.png)
+![2](/2023/03/28/java-ji-chu/java-ji-chu/2.png)
 
 场景1：代码执行环境>=jdk7
 
@@ -118,7 +118,7 @@ Java堆：是线程共享的一块区域，此区域的唯一目的是为了存�
 	TLAB的出现的目的是避免堆上直接分配内存从而避免频繁的锁竞争。
 	在检查如果开启了TLAB时，如果开启了，那么判断此线程剩余的TLAB大小时候满足于分配此对象，如果不满足，再判断TLAB的剩余空间是否小于最大浪费空间限制（动态值），如果是，则从Eden区中重新申请一个TLAB空间；否则直接在TLAB外分配。发生GC时，TLAB会被回收。
 	-XX:UseTLAB 开启TLAB 默认开启
-	![1](/2023/03/28/java-ji-chu/java-ji-chu/java-ji-chu/3.png)
+	![3](/2023/03/28/java-ji-chu/java-ji-chu/3.png)
 	
 	TLAB有什么缺点，怎么解决？
 	TLAB引入后，由于存在TLAB停止的场景，也就是在TLAB的剩余空间小于最大浪费空间限制值下，需要重新申请一个TLAB，那么此时的剩余空间就是一个间隙。或者是GC时，还有TLAB的剩余空间。如果不管这些空间那么GC的时候这些空间就需要额外的检查，影响GC的扫描效率。
@@ -184,7 +184,7 @@ JVM垃圾回收算法：
 
 独占与非独占式垃圾回收的区别：在垃圾回收的时候垃圾回收线程是否同应用线程并行执行。
 
-![1](/2023/03/28/java-ji-chu/java-ji-chu/java-ji-chu/4.png)
+![4](/2023/03/28/java-ji-chu/java-ji-chu/4.png)
 
 新生代的垃圾收集器：Serial GC、Parallel Scavenge GC、ParNew GC
 老年代垃圾收集器：Serial Old GC、Parallel Old GC、CMS GC
