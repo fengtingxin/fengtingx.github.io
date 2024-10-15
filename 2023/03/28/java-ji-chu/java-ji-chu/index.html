@@ -378,21 +378,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-10-08
+                    2024-10-12
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.5k
+                    3.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    14 分
+                    15 分
                 </div>
                 
 
@@ -548,7 +548,19 @@ Heap after GC invocations<span class="token operator">=</span><span class="token
 <span class="token operator">}</span>
  <span class="token punctuation">[</span>Times<span class="token operator">:</span> user<span class="token operator">=</span><span class="token number">0.20</span> sys<span class="token operator">=</span><span class="token number">0.01</span><span class="token punctuation">,</span> real<span class="token operator">=</span><span class="token number">0.07</span> secs<span class="token punctuation">]</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h1 id="Java并发"><a href="#Java并发" class="headerlink" title="Java并发"></a>Java并发</h1><h2 id="并发基础"><a href="#并发基础" class="headerlink" title="并发基础"></a>并发基础</h2><h3 id="硬件内存架构"><a href="#硬件内存架构" class="headerlink" title="硬件内存架构"></a>硬件内存架构</h3><h3 id="OS的进程、线程"><a href="#OS的进程、线程" class="headerlink" title="OS的进程、线程"></a>OS的进程、线程</h3><h3 id="安全性问题、加锁机制、活跃性问题及性能问题"><a href="#安全性问题、加锁机制、活跃性问题及性能问题" class="headerlink" title="安全性问题、加锁机制、活跃性问题及性能问题"></a>安全性问题、加锁机制、活跃性问题及性能问题</h3><h2 id="JMM"><a href="#JMM" class="headerlink" title="JMM"></a>JMM</h2><h3 id="Java内存模型-及-Java线程"><a href="#Java内存模型-及-Java线程" class="headerlink" title="Java内存模型 及 Java线程"></a>Java内存模型 及 Java线程</h3><h3 id="并发环境下的JMM存在的问题"><a href="#并发环境下的JMM存在的问题" class="headerlink" title="并发环境下的JMM存在的问题"></a>并发环境下的JMM存在的问题</h3><h3 id="常用关键字语义：volatile，final，synchronized"><a href="#常用关键字语义：volatile，final，synchronized" class="headerlink" title="常用关键字语义：volatile，final，synchronized"></a>常用关键字语义：volatile，final，synchronized</h3><h2 id="JUC"><a href="#JUC" class="headerlink" title="JUC"></a>JUC</h2><h3 id="Unsafe、LockSupport"><a href="#Unsafe、LockSupport" class="headerlink" title="Unsafe、LockSupport"></a>Unsafe、LockSupport</h3><h3 id="AQS"><a href="#AQS" class="headerlink" title="AQS"></a>AQS</h3><h3 id="线程同步工具类"><a href="#线程同步工具类" class="headerlink" title="线程同步工具类"></a>线程同步工具类</h3><h3 id="JUC的锁"><a href="#JUC的锁" class="headerlink" title="JUC的锁"></a>JUC的锁</h3><h3 id="JUC原子类"><a href="#JUC原子类" class="headerlink" title="JUC原子类"></a>JUC原子类</h3><h3 id="JUC下的线程安全容器"><a href="#JUC下的线程安全容器" class="headerlink" title="JUC下的线程安全容器"></a>JUC下的线程安全容器</h3><h3 id="JUC线程池"><a href="#JUC线程池" class="headerlink" title="JUC线程池"></a>JUC线程池</h3>
+<h1 id="Java并发"><a href="#Java并发" class="headerlink" title="Java并发"></a>Java并发</h1><h2 id="并发基础"><a href="#并发基础" class="headerlink" title="并发基础"></a>并发基础</h2><h3 id="硬件内存架构"><a href="#硬件内存架构" class="headerlink" title="硬件内存架构"></a>硬件内存架构</h3><p><img src="/2023/03/28/java-ji-chu/java-ji-chu/5.png" alt="5"></p>
+<p><strong>CPU、缓存、主内存交互过程</strong>：读写速度从高到低：CPU &gt; 缓存 &gt; 主内存；CPU访问数据时，先读缓存，未命中再访问主内存；CPU写入数据时，先写缓存，然后再刷新主内存。</p>
+<p><strong>缓存一致性</strong>：每个CPU都有独立缓存并且一起共享主内存，涉及同一个内存区域的操作会导致缓存数据不一致。</p>
+<p><strong>乱序执行优化</strong>（out-of-order execution）：为了使处理器内部的运算单元能尽量被充分利用，处理器可能会对输入代码进行乱序执行；乱序执行的最终结果和顺序执行的最终结果一直，但不保证中间态。</p>
+<h3 id="OS的进程、线程"><a href="#OS的进程、线程" class="headerlink" title="OS的进程、线程"></a>OS的进程、线程</h3><p>进程：是操作系统进行资源分配的基本单位.</p>
+<p>线程：线程是更轻量级的进场，是操作系统进行资源调度的基本单位。</p>
+<h2 id="JMM"><a href="#JMM" class="headerlink" title="JMM"></a>JMM</h2><h3 id="Java内存模型-及-Java线程"><a href="#Java内存模型-及-Java线程" class="headerlink" title="Java内存模型 及 Java线程"></a>Java内存模型 及 Java线程</h3><p><img src="/2023/03/28/java-ji-chu/java-ji-chu/6.png" alt="6"></p>
+<p>Java的内存模型主要分为：主内存和工作内存.</p>
+<p>主内存：存储Java实例对象，所有线程创建的实例对象都存放在主内存中。</p>
+<p>工作内存：每个线程都有其自己的工作内存，工作内存中保存该线程使用遍历的主内存副本，线程对于变量的所有操作都必须在工作内存中进行，而不能直接读写主内存中的数据。不同线程无法访问对方工作内存中的变量，线程间变量值的传递需由主内存来完成。</p>
+<p><img src="/2023/03/28/java-ji-chu/java-ji-chu/7.png" alt="7"></p>
+<p>wait、sleep、yield、join区别</p>
+<h3 id="并发环境下的JMM存在的问题"><a href="#并发环境下的JMM存在的问题" class="headerlink" title="并发环境下的JMM存在的问题"></a>并发环境下的JMM存在的问题</h3><h3 id="常用关键字语义：volatile，final，synchronized"><a href="#常用关键字语义：volatile，final，synchronized" class="headerlink" title="常用关键字语义：volatile，final，synchronized"></a>常用关键字语义：volatile，final，synchronized</h3><h2 id="JUC"><a href="#JUC" class="headerlink" title="JUC"></a>JUC</h2><h3 id="Unsafe、LockSupport"><a href="#Unsafe、LockSupport" class="headerlink" title="Unsafe、LockSupport"></a>Unsafe、LockSupport</h3><h3 id="AQS"><a href="#AQS" class="headerlink" title="AQS"></a>AQS</h3><h3 id="线程同步工具类"><a href="#线程同步工具类" class="headerlink" title="线程同步工具类"></a>线程同步工具类</h3><h3 id="JUC的锁"><a href="#JUC的锁" class="headerlink" title="JUC的锁"></a>JUC的锁</h3><h3 id="JUC原子类"><a href="#JUC原子类" class="headerlink" title="JUC原子类"></a>JUC原子类</h3><h3 id="JUC下的线程安全容器"><a href="#JUC下的线程安全容器" class="headerlink" title="JUC下的线程安全容器"></a>JUC下的线程安全容器</h3><h3 id="JUC线程池"><a href="#JUC线程池" class="headerlink" title="JUC线程池"></a>JUC线程池</h3>
                 
             </div>
             <hr/>
@@ -893,7 +905,7 @@ Heap after GC invocations<span class="token operator">=</span><span class="token
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">41.1k</span>
+                        class="white-color">43.5k</span>
             
             
             
